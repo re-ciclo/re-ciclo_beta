@@ -7,7 +7,25 @@ const Projeto = () =>{
 
     return(
         <div className="container-fluid bg-light">
-            <h1>Projeto</h1>
+            <div className="row my-2">
+                <h1 className="ml-2">Projeto</h1>
+            </div>
+            <div className="row my-4">
+                <div className="col-12 col-sm-6 bg-primary">Texto</div>
+                <div className="col-12 col-sm-6 bg-success">Carrosell</div>
+            </div>
+            <div className="row my-4">
+                <div className="col-12 col-sm-6 bg-success">Carrosell</div>
+                <div className="col-12 col-sm-6 bg-primary">Texto</div>
+            </div>
+            <div className="row my-4">
+                <div className="col-12 col-sm-6 bg-primary">Texto</div>
+                <div className="col-12 col-sm-6 bg-success">Carrosell</div>
+            </div>
+            <div className="row my-4">
+                <div className="col-12 col-sm-6 bg-success">Carrosell</div>
+                <div className="col-12 col-sm-6 bg-primary">Texto</div>
+            </div>
         </div>
     );
 }
