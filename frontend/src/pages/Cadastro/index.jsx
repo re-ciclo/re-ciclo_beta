@@ -12,7 +12,7 @@ import './Cadastro.css';
 
 import ImgCadastro from './img/cadastro.jpg';
 
-const Cadastro = () =>{
+const Cadastro = () => {
 
     return(
         <>
@@ -36,6 +36,7 @@ const Cadastro = () =>{
         </div>
         
         </>
+
     );
 }
 
