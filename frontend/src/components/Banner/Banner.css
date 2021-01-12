@@ -1,0 +1,41 @@
+.banner1 {
+    background-image: url("./img/banner1.png");
+    height: 100vh;
+    background-size: cover;
+}
+
+.banner2 {
+    background-image: url("./img/banner2.png");
+    height: 100vh;
+    background-size: cover;
+}
+
+.card {
+    background-color: transparent !important;
+    border: transparent !important;
+    height: 18rem;
+}
+
+.text-banner-1 p {
+    margin-top: 7rem;
+    font-size: clamp(1rem, 2.2vw, 1.8rem);
+    color: white;
+    text-shadow: 1px 1px 2px black;
+}
+
+.title-banner-2 {
+    margin-top: 4rem;
+    font-size: clamp(1.1rem, 2.2vw, 1.8rem);
+    color: white;
+    text-shadow: 1px 1px 2px black;
+    text-align: center;
+}
+
+.text-banner-2 {
+    margin-top: 4rem;
+    font-size: clamp(1rem, 1.8vw, 1.6rem);
+    color: white;
+    text-shadow: 1px 1px 2px black;
+    text-align: justify;
+}
+
