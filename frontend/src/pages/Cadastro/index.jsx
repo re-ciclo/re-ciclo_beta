@@ -3,12 +3,13 @@ import React from 'react';
 
 //Components
 
-const Cadastro = () =>{
+const Cadastro = () => {
 
-    return(
-        <div className="container-fluid bg-light">
-            <h1>Cadastro</h1>
+    return (
+        <div>
+            
         </div>
+
     );
 }
 
