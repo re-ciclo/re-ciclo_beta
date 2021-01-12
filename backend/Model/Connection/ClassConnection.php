@@ -10,10 +10,18 @@ class Connection
             ""
         );
         
-        if ($conn) {
-            return $conn;
+        if (!$conn) {
+            echo "Não foi possível conectar ao banco MySQL.";
         } else {
-            return "<h1>Erro ao realizar conexão</h1>";
+            echo "Conectado";
         }
     }
 }
+
+
+/*
+if (!$conn) {echo "Não foi possível conectar ao banco MySQL.
+"; exit;}
+else {echo "Parabéns!! A conexão ao banco de dados ocorreu normalmente!.
+";}
+mysql_close(); */
