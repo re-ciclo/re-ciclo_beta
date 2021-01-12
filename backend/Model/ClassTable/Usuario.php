@@ -1,5 +1,6 @@
 <?php
 
+
 include_once("../Connection/ClassConnection.php");
 
 
@@ -13,7 +14,7 @@ class Usuario
     public $endereco;
     public $nivel_acesso;
 
-    public static function getAll()
+    public  function getAll()
     {
         $connection = Connection::getDb();
 
