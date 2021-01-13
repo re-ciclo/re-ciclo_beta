@@ -2,7 +2,7 @@
 
 
 
-include_once("../Model/ClassTable/Usuario.php");
+require "../Model/ClassTable/Usuario.php";
 
 $dados = Usuario::getAll();
 

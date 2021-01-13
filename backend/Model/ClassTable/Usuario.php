@@ -1,7 +1,7 @@
 <?php
 
 
-include_once("../Connection/ClassConnection.php");
+include_once("../Connection/Connection.php");
 
 
 class Usuario
