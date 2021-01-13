@@ -1,190 +1,119 @@
--- phpMyAdmin SQL Dump
--- version 5.0.4
--- https://www.phpmyadmin.net/
---
--- Host: 127.0.0.1
--- Tempo de geração: 12-Jan-2021 às 03:17
--- Versão do servidor: 10.4.17-MariaDB
--- versão do PHP: 8.0.0
+CREATE DATABASE reciclo;
+USE reciclo;
+DROP database reciclo;
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
+CREATE TABLE usuario
+(
+id_usuario INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+nome varchar(80) NOT NULL,
+email varchar(80) NOT NULL,
+telefone int(14) NULL,
+senha VARCHAR(80) NOT NULL,
+nivel_acesso tinyint(1) DEFAULT 0 NOT NULL,
+data datetime DEFAULT CURRENT_TIMESTAMP NOT NULL
+);
+
+INSERT INTO usuario
+(nome, email, telefone, senha) VALUES 
+('Alex', 'alex@gmail.com', '33333333', '11111'),
+('Pablo', 'pablo@gmail.com', '44444444', '11111'),
+('Willyan', 'will@gmail.com', '55555555', '11111');
 
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+CREATE TABLE endereco
+(
+id_endereco INT NOT NULL AUTO_INCREMENT PRIMARY KEY, 
+id_usuario INT NOT NULL,
+cep varchar(80) NOT NULL,
+logradouro varchar(80) NOT NULL,
+complemento varchar(80) NOT NULL,
+bairro VARCHAR(80) NOT NULL,
+localidade VARCHAR(80) NOT NULL,
+uf VARCHAR(80) NOT NULL,
+numero VARCHAR(80) NOT NULL,
+data datetime DEFAULT CURRENT_TIMESTAMP NOT NULL,
+FOREIGN KEY (id_usuario)  REFERENCES  usuario (id_usuario)
+);
 
---
--- Banco de dados: `reciclo`
---
+INSERT INTO endereco (id_usuario, cep, logradouro, complemento, bairro, localidade, uf, numero) VALUES
+(1,'05000-010','logradouro A','complemento A', 'bairro A', 'localidade A', 'uf A','10'),
+(2,'05000-020','logradouro P','complemento P', 'bairro P', 'localidade P', 'uf P','20'),
+(3,'05000-030','logradouro W','complemento W', 'bairro W', 'localidade W', 'uf W','30');
 
--- --------------------------------------------------------
 
---
--- Estrutura da tabela `endereco`
---
+CREATE TABLE material
+(
+id_material INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+nome varchar(80) NOT null,
+preco_kg decimal(8,2),
+data datetime DEFAULT CURRENT_TIMESTAMP not null
 
-CREATE TABLE `endereco` (
-  `id_usuario` int(11) DEFAULT NULL,
-  `cep` varchar(80) NOT NULL,
-  `logradouro` varchar(80) NOT NULL,
-  `complemento` varchar(80) NOT NULL,
-  `bairro` varchar(80) NOT NULL,
-  `localidade` varchar(80) NOT NULL,
-  `uf` varchar(80) NOT NULL,
-  `numero` varchar(80) NOT NULL,
-  `data` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+);
 
--- --------------------------------------------------------
+INSERT INTO `material` (`nome`, `preco_kg`, `data`) VALUES
+('papelao', '0.70', '2021-01-12 17:10:13'),
+('papel branco', '0.65', '2021-01-12 17:11:16'),
+('papel misto', '0.00', '2021-01-12 17:18:20'),
+('lata de aluminio', '5.30', '2021-01-12 17:18:20'),
+('cobre', '29.00', '2021-01-12 17:21:10'),
+('vidro', '0.18', '2021-01-12 17:21:10'),
+('plastico rigido', '1.85', '2021-01-12 17:23:57'),
+('pet', '0.28', '2021-01-12 17:23:57');
 
---
--- Estrutura da tabela `material`
---
+CREATE TABLE reciclado
+(
+id_reciclado int AUTO_INCREMENT PRIMARY KEY,
+id_usuario int NOT NULL,
+id_material int NOT NULL,
+peso_total decimal(8,2),
+-- valor_total decimal(8,2) generated always as (peso_total * id_material) STORED,
+data datetime DEFAULT CURRENT_TIMESTAMP NOT null,
+FOREIGN KEY (id_usuario)  REFERENCES  usuario (id_usuario),
+FOREIGN KEY (id_material)  REFERENCES  material (id_material)
+);
 
-CREATE TABLE `material` (
-  `id_material` int(11) NOT NULL,
-  `nome` varchar(80) NOT NULL,
-  `preco_kg` decimal(8,2) DEFAULT NULL,
-  `data` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- --------------------------------------------------------
 
---
--- Estrutura da tabela `mensagem`
---
 
-CREATE TABLE `mensagem` (
-  `id_mensagem` int(11) NOT NULL,
-  `assunto` varchar(80) NOT NULL,
-  `nome` varchar(80) NOT NULL,
-  `email` varchar(80) NOT NULL,
-  `telefone` int(14) DEFAULT NULL,
-  `data` datetime DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+drop table reciclado;
 
--- --------------------------------------------------------
+-- Obs: não é preciso por a data, pois pega automaticamente, porém para testar períodos, inseri datas
+INSERT INTO reciclado (id_usuario, id_material, peso_total, data) VALUES
+(1,2,20,'2020-12-20 21:02:19'),(1,5,5,'2020-12-20 21:02:19'),
+(2,1,20,'2021-01-01 21:02:19'),(2,1,10,'2021-01-01 21:02:19'),
+(3,3,20,'2021-01-12 21:02:19');
 
---
--- Estrutura da tabela `reciclado`
---
 
-CREATE TABLE `reciclado` (
-  `id_reciclado` int(11) NOT NULL,
-  `id_usuario` int(11) DEFAULT NULL,
-  `id_material` int(11) DEFAULT NULL,
-  `peso_total` decimal(8,2) DEFAULT NULL,
-  `valor_total` decimal(8,2) DEFAULT NULL,
-  `data` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- --------------------------------------------------------
 
---
--- Estrutura da tabela `usuarios`
---
 
-CREATE TABLE `usuarios` (
-  `id_usuario` int(11) NOT NULL,
-  `nome` varchar(80) NOT NULL,
-  `email` varchar(80) NOT NULL,
-  `telefone` int(14) DEFAULT NULL,
-  `senha` varchar(80) NOT NULL,
-  `endereco` varchar(80) NOT NULL,
-  `data` datetime NOT NULL DEFAULT current_timestamp(),
-  `nivel_acesso` tinyint(1) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+-- Seleção sem data
+SELECT usuario.nome, usuario.id_usuario, material.id_material, reciclado.id_reciclado, material.nome, material.preco_kg, reciclado.peso_total,
+(material.preco_kg * reciclado.peso_total) as `Valor Total`
+FROM reciclado inner join material 
+ON reciclado.id_material = material.id_material
+inner join usuario
+ON usuario.id_usuario = reciclado.id_usuario;
 
---
--- Extraindo dados da tabela `usuarios`
---
+-- Seleção com base em data
+SELECT usuario.nome, usuario.id_usuario, material.id_material, reciclado.id_reciclado, material.nome, material.preco_kg, reciclado.peso_total,
+(material.preco_kg * reciclado.peso_total) as `Valor Total`, reciclado.data
+FROM reciclado inner join material 
+ON reciclado.id_material = material.id_material
+inner join usuario
+ON usuario.id_usuario = reciclado.id_usuario
+WHERE reciclado.data between '2020-12-20' and '2020-12-21';
 
---
--- Índices para tabelas despejadas
---
 
---
--- Índices para tabela `endereco`
---
-ALTER TABLE `endereco`
-  ADD KEY `id_usuario` (`id_usuario`);
 
---
--- Índices para tabela `material`
---
-ALTER TABLE `material`
-  ADD PRIMARY KEY (`id_material`);
+CREATE TABLE mensagem
+(
+id_mensagem int AUTO_INCREMENT PRIMARY KEY,
+assunto varchar(80) NOT null,
+nome varchar (80) not null,
+email varchar (80) not null,
+telefone int(14) null,
+DATA datetime DEFAULT (CURRENT_TIMESTAMP)
 
---
--- Índices para tabela `mensagem`
---
-ALTER TABLE `mensagem`
-  ADD PRIMARY KEY (`id_mensagem`);
+);
 
---
--- Índices para tabela `reciclado`
---
-ALTER TABLE `reciclado`
-  ADD PRIMARY KEY (`id_reciclado`),
-  ADD KEY `id_usuario` (`id_usuario`),
-  ADD KEY `id_material` (`id_material`);
-
---
--- Índices para tabela `usuarios`
---
-ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`id_usuario`);
-
---
--- AUTO_INCREMENT de tabelas despejadas
---
-
---
--- AUTO_INCREMENT de tabela `material`
---
-ALTER TABLE `material`
-  MODIFY `id_material` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de tabela `mensagem`
---
-ALTER TABLE `mensagem`
-  MODIFY `id_mensagem` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de tabela `reciclado`
---
-ALTER TABLE `reciclado`
-  MODIFY `id_reciclado` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de tabela `usuarios`
---
-ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
--- Restrições para despejos de tabelas
---
-
---
--- Limitadores para a tabela `endereco`
---
-ALTER TABLE `endereco`
-  ADD CONSTRAINT `endereco_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`);
-
---
--- Limitadores para a tabela `reciclado`
---
-ALTER TABLE `reciclado`
-  ADD CONSTRAINT `reciclado_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`),
-  ADD CONSTRAINT `reciclado_ibfk_2` FOREIGN KEY (`id_material`) REFERENCES `material` (`id_material`);
-COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
