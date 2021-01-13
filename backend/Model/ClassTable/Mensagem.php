@@ -1,10 +1,11 @@
 <?php
 
-include_once("../Connection/ClassConnection.php");
+include_once("../Connection/Connection.php");
 
 
-class Mensagens
+class Mensagem
 {
+    // public $id_mensagem;
     public $assunto;
     public $nome;
     public $email;
@@ -19,10 +20,10 @@ class Mensagens
         
     }
 
-    public function registerEndereco()
+    public function registerMessage()
     {
         $connection = Connection::getDb();
-
+                                                       
         $stmt = $connection->query("INSERT INTO mensagem(assunto, nome, email, telefone) values ('$this->assunto', '$this->nome', '$this->email', '$this->telefone')");
  
 
