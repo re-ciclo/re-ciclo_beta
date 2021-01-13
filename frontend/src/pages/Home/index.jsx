@@ -1,38 +1,43 @@
 import React from 'react';
-// Libraries
 
 //Components
+import { BannerConsume, BannerInfo } from '../../components/Banner';
+import CardsReciclo from '../../components/Card';
+import {CarrousselSupporters} from '../../components/Carroussel';
+
+//styles
+import './Home.css';
+
+
 
 const Home = () =>{
 
     return(
-        <div className="container-fluid bg-light">
-            <div className="row my-2">
-                <h1 className="ml-2">Home</h1>
-            </div>
+        <div className="container-fluid">            
+            
             <div className="row bg-primary my-4">
                 <div className="col-12">
                         Carrossel
                 </div>
             </div>
-            <div className="row bg-success my-4">
+            <div className="row my-4">
                 <div className="col-12">
-                        Banner
+                    <BannerConsume />
+                </div>                
+            </div>
+            <div className="row my-4">
+                <div className="col-12">
+                        <CardsReciclo />
                 </div>
             </div>
-            <div className="row bg-primary my-4">
+            <div className="row my-4">
                 <div className="col-12">
-                        Cards
+                    <BannerInfo />
                 </div>
             </div>
-            <div className="row bg-success my-4">
+            <div className="row my-4">
                 <div className="col-12">
-                        Banner2
-                </div>
-            </div>
-            <div className="row bg-primary my-4">
-                <div className="col-12">
-                        Apoiadores
+                    <CarrousselSupporters />
                 </div>
             </div>
         </div>
