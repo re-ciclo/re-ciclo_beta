@@ -1,0 +1,20 @@
+.menu {
+    background-color: #00B9A3;
+}
+
+.drop-link{
+    color: black !important; 
+}
+
+.btn.focus, 
+.btn:focus {
+    box-shadow: none !important;
+}
+
+.btn {
+    color: rgba(255,255,255,.75) !important;
+}
+
+.btn:hover {
+    color: white;
+}
