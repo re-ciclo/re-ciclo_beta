@@ -1,11 +1,12 @@
 import React from 'react';
 
-//Components
+// Components
 import { BannerConsume, BannerInfo } from '../../components/Banner';
 import CardsReciclo from '../../components/Card';
 import {CarrousselSupporters} from '../../components/Carroussel';
+import {Carroussel} from '../../components/Carroussel';
 
-//styles
+// Styles
 import './Home.css';
 
 
@@ -13,11 +14,12 @@ import './Home.css';
 const Home = () =>{
 
     return(
+
         <div className="container-fluid">            
             
-            <div className="row bg-primary my-4">
+            <div className="row my-4">
                 <div className="col-12">
-                        Carrossel
+                      < Carroussel/>
                 </div>
             </div>
             <div className="row my-4">
