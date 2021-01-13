@@ -8,10 +8,16 @@ const Projeto = () =>{
     return(
         <div className="container-fluid bg-light">
             <div className="row my-2">
-                <h1 className="ml-2">Projeto</h1>
+                <h1 className="ml-2"></h1>
             </div>
             <div className="row my-4">
-                <div className="col-12 col-sm-6 bg-primary">Texto</div>
+                <div className="col-12 col-sm-6 bg-primary"><h1>
+                COMUNIDADE MARACANÃ
+                <p> A comunidade Maracana,fica localizada não região Sul de São Paulo.
+Rodeadas de predios populares, hoje a comunidade possui uma infraestrutua que nescessita constantimente de manutenção.</p>
+                    </h1>
+                    
+                    </div>
                 <div className="col-12 col-sm-6 bg-success">Carrosell</div>
             </div>
             <div className="row my-4">

@@ -28,6 +28,7 @@ import './Carroussel.css';
 
 
 export const Carroussel = () => {
+ 
 
     return (
         
@@ -86,9 +87,10 @@ export const Carroussel = () => {
 </>
     );
 }
-    
+ 
 
-export const CarrousselSupporters = () => {
+
+const CarrousselSupporters = () => {
 
   return (
 
@@ -123,6 +125,12 @@ export const CarrousselSupporters = () => {
       </section>
 
     </>
+
+   
   );
 }
+
+
+
+
 
