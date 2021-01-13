@@ -2,3 +2,16 @@
     height: 70%;
     width: 90%;
 }
+
+
+/* Responsive */
+
+@media (max-width: 415px) {
+    .card {
+        height: initial;
+    }
+
+    .card-body {
+        padding: 0 !important;
+    }
+}
