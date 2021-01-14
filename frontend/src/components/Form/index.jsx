@@ -8,9 +8,7 @@ import {Termos, Politica} from '../Modal';
 import './Form.css';
 
 
-
-const FormRegister = () =>{
-
+export const FormRegister = () =>{
 
     // Dados Usuario - Pessoal
 
@@ -100,7 +98,7 @@ const FormRegister = () =>{
                 <FormGroup row>
                     <Label for="telefone" sm={3}>Telefone</Label>
                     <Col sm={9}>
-                    <Input type="tel" name="telefone" minLength="8" maxLength="15" id="telefone" placeholder="Digite seu celular com DDD  Ex: 11999995555" required/>
+                    <Input type="tel" name="telefone" minLength="10" maxLength="11" id="telefone" placeholder="Digite seu celular com DDD  Ex: 11999995555" required/>
                     </Col>
                 </FormGroup>
 
@@ -120,46 +118,44 @@ const FormRegister = () =>{
 
                 <FormGroup row>
                     <Label for="cep" sm={3}>CEP</Label>
-                    <Col sm={3}>
+                    <Col sm={2}>
                     <Input type="text" name="cep" minLength="8" maxLength="8" id="cep" placeholder="00000-000" required/>
                     </Col>
 
                     <Label for="logradouro" sm={2}>Logradouro</Label>
-                    <Col sm={4}>
+                    <Col sm={5}>
                     <Input type="text" name="logradouro" minLength="3" maxLength="50" id="logradouro" placeholder="..." required/>
                     </Col>
                 </FormGroup>
 
-
                 <FormGroup row>
-                    <Label for="complemento" sm={3}>Complemento</Label>
-                    <Col sm={3}>
-                    <Input type="text" name="complemento" minLength="3" maxLength="50" id="complemento" placeholder="..." required/>
-                    </Col>
-
-                    <Label for="bairro" sm={2}>Bairro</Label>
-                    <Col sm={4}>
-                    <Input type="text" name="bairro" minLength="3" maxLength="50" id="bairro" placeholder="..." required/>
-                    </Col>
-                </FormGroup>
-
-                <FormGroup row>
-                    <Label for="localidade" sm={3}>Localidade</Label>
-                    <Col sm={2}>
-                    <Input type="text" name="localidade" minLength="3" maxLength="50" id="localidade" placeholder="..." required/>
-                    </Col>
-
-                    <Label for="uf" sm={1}>Uf</Label>
-                    <Col sm={3}>
-                    <Input type="text" name="uf" minLength="2" maxLength="2" id="uf" placeholder="..." required/>
-                    </Col>
-
-                    <Label for="numero" sm={1}>Nº</Label>
+                    <Label for="numero" sm={3}>Nº</Label>
                     <Col sm={2}>
                     <Input type="text" name="numero" minLength="1" maxLength="5" id="numero" placeholder="..." required/>
                     </Col>
+
+                    <Label for="complemento" sm={2}>Complemento</Label>
+                    <Col sm={5}>
+                    <Input type="text" name="complemento" minLength="3" maxLength="50" id="complemento" placeholder="..." required/>
+                    </Col>                    
                 </FormGroup>
-                
+
+                <FormGroup row>
+                    <Label for="bairro" sm={3}>Bairro</Label>
+                    <Col sm={3}>
+                    <Input type="text" name="bairro" minLength="3" maxLength="50" id="bairro" placeholder="..." required/>
+                    </Col>
+
+                    <Label for="localidade" sm={1}>Cidade</Label>
+                    <Col sm={3}>
+                    <Input type="text" name="cidade" minLength="3" maxLength="50" id="cidade" placeholder="..." required/>
+                    </Col>
+
+                    <Label for="uf" sm={1}>Uf</Label>
+                    <Col sm={1}>
+                    <Input type="text" name="uf" minLength="2" maxLength="2" id="uf" placeholder="..." required/>
+                    </Col>                    
+                </FormGroup>                
 
                 <FormGroup check className="mt-4">
                     <Label check>
@@ -167,7 +163,6 @@ const FormRegister = () =>{
                         Criando sua conta você concorda com nossos <span className="link"><Termos/></span> e nossa <span className="link"><Politica/></span>
                     </Label>
                 </FormGroup>
-
 
                 <div className="d-flex justify-content-center">
                     <Button className="mt-4 btn-register" size="lg">Cadastrar</Button>{' '}
@@ -183,4 +178,58 @@ const FormRegister = () =>{
     );
 }
 
-export default FormRegister;
+export const FormContact = () =>{
+
+    return(
+        <>
+        
+            <Form className="bg-form">
+                <FormGroup row>
+                <Label for="nome" sm={3}>Nome</Label>
+                <Col sm={9}>
+                <Input type="text" name="nome" id="nome" placeholder="Digite seu nome completo" />
+                </Col>
+                </FormGroup>
+                
+                <FormGroup row>
+                <Label for="email" sm={3}>Email</Label>
+                <Col sm={9}>
+                <Input type="email" name="email" id="email" placeholder="Digite seu e-mail" />
+                </Col>
+                </FormGroup>
+                
+                <FormGroup row>
+                <Label for="telefone" sm={3}>Telefone</Label>
+                <Col sm={9}>
+                <Input type="tel" name="telephone" minLength="10" maxLength="11" id="telephone" placeholder="Digite seu celular com DDD Ex: 11999995555" />
+                </Col>
+                </FormGroup>
+                
+                <FormGroup row>
+                <Label for="select"sm={3}>Assunto</Label>
+                <Col sm={9}>
+                <Input type="select" name="select" id="select">
+                <option selected>Escolha o assunto</option>
+                <option>Solicitar informação</option>
+                <option>Elogio</option>
+                <option>Sugestão</option>
+                <option>Reclamação</option>
+                <option>Outro</option>
+                </Input>
+                </Col>
+                </FormGroup> 
+                
+                <FormGroup row>
+                <Label for="text" sm={3}>Mensagem</Label>
+                <Col sm={9}>
+                <Input type="textarea" name="text" id="text" />
+                </Col>
+                </FormGroup>
+            
+                <div className="d-flex justify-content-center">
+                <Button className="mt-4 btn-register" size="lg">Enviar</Button>
+                </div>
+            </Form>
+        </>
+    );
+}    
