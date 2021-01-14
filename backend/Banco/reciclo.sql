@@ -7,12 +7,13 @@ CREATE TABLE usuario
 id_usuario INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 nome varchar(80) NOT NULL,
 email varchar(80) NOT NULL,
-telefone int(14) NULL,
+telefone varchar(14) NULL,
 senha VARCHAR(80) NOT NULL,
 nivel_acesso tinyint(1) DEFAULT 0 NOT NULL,
 data datetime DEFAULT CURRENT_TIMESTAMP NOT NULL
 );
 
+SELECT * FROM usuario;
 INSERT INTO usuario
 (nome, email, telefone, senha) VALUES 
 ('Alex', 'alex@gmail.com', '33333333', '11111'),
@@ -37,13 +38,15 @@ FOREIGN KEY (id_usuario)  REFERENCES  usuario (id_usuario)
 
 
 
-
+drop table usuario;
 
 INSERT INTO endereco (id_usuario, cep, logradouro, complemento, bairro, localidade, uf, numero) VALUES
 (1,'05000-010','logradouro A','complemento A', 'bairro A', 'localidade A', 'uf A','10'),
 (2,'05000-020','logradouro P','complemento P', 'bairro P', 'localidade P', 'uf P','20'),
 (3,'05000-030','logradouro W','complemento W', 'bairro W', 'localidade W', 'uf W','30');
 
+SELECT * FROM usuario;
+SELECT * FROM endereco;
 
 SELECT count(id_usuario)+1 FROM endereco;
 

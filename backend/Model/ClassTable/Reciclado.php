@@ -1,5 +1,6 @@
 <?php 
-
+header("Access-Control-Allow-Origin:*");
+header("Content-type: json");
 include_once("../Connection/Connection.php");
 
 class Reciclado
