@@ -74,46 +74,49 @@ INSERT INTO `material` (`nome`, `preco_kg`, `data`) VALUES
 CREATE TABLE reciclado
 (
 id_reciclado int AUTO_INCREMENT PRIMARY KEY,
-id_usuario int NOT NULL,
 id_material int NOT NULL,
 peso_total decimal(8,2),
 -- valor_total decimal(8,2) generated always as (peso_total * id_material) STORED,
 data datetime DEFAULT CURRENT_TIMESTAMP NOT null,
-FOREIGN KEY (id_usuario)  REFERENCES  usuario (id_usuario),
 FOREIGN KEY (id_material)  REFERENCES  material (id_material)
 );
 
 SELECT * FROM reciclado;
-
+truncate reciclado;
 
 -- drop table reciclado;
 
 -- Obs: não é preciso por a data, pois pega automaticamente, porém para testar períodos, inseri datas
-INSERT INTO reciclado (id_usuario, id_material, peso_total, data) VALUES
-(1,2,20,'2020-12-20 21:02:19'),(1,5,5,'2020-12-20 21:02:19'),
-(2,1,20,'2021-01-01 21:02:19'),(2,1,10,'2021-01-01 21:02:19'),
-(3,3,20,'2021-01-12 21:02:19');
+INSERT INTO reciclado (id_material, peso_total, data) VALUES
+-- Registros do dia 20/12/2020
+(1,5,'2020-12-20 00:00:00'),(2,20,'2020-12-20 00:00:00'),(3,20,'2020-12-20 00:00:00'),(4,20,'2020-12-20 00:00:00'),
+(5,10,'2020-12-20 00:00:00'),(6,30,'2020-12-20 00:00:00'),(7,10,'2020-12-20 00:00:00'),(8,20,'2020-12-20 00:00:00'),
+
+-- Registros do dia 27/12/2020
+(1,20,'2020-12-27 00:00:00'),(2,20,'2020-12-27 00:00:00'),(3,20,'2020-12-27 00:00:00'),(4,20,'2020-12-27 00:00:00'),
+(5,20,'2020-12-27 00:00:00'),(6,20,'2020-12-27 00:00:00'),(7,20,'2020-12-27 00:00:00'),(8,20,'2020-12-27 00:00:00'),
 
 
+-- Registros do dia 03/01/2021
+(1,20,'2021-01-03 00:00:00'),(2,20,'2021-01-03 00:00:00'),(3,20,'2021-01-03 00:00:00'),(4,20,'2021-01-03 00:00:00'),
+(5,20,'2021-01-03 00:00:00'),(6,20,'2021-01-03 00:00:00'),(7,20,'2021-01-03 00:00:00'),(8,20,'2021-01-03 00:00:00');
 
 
 
 -- Seleção sem data
-SELECT usuario.nome, usuario.id_usuario, material.id_material, reciclado.id_reciclado, material.nome, material.preco_kg, reciclado.peso_total,
-(material.preco_kg * reciclado.peso_total) as `Valor Total`, reciclado.data
+SELECT material.id_material, reciclado.id_reciclado, material.nome, material.preco_kg, reciclado.peso_total,
+(material.preco_kg * reciclado.peso_total) as `Valor Total`, DATE_FORMAT(reciclado.data, "%d/%m/%Y") as ` Data Comum`
 FROM reciclado inner join material 
 ON reciclado.id_material = material.id_material
-inner join usuario
-ON usuario.id_usuario = reciclado.id_usuario;
+order by  DATE_FORMAT(reciclado.data, "%d/%m/%Y");
+
 
 -- Seleção com base em data
-SELECT usuario.nome, usuario.id_usuario, material.id_material, reciclado.id_reciclado, material.nome, material.preco_kg, reciclado.peso_total,
-(material.preco_kg * reciclado.peso_total) as `Valor Total`, reciclado.data
+SELECT material.id_material, material.nome, material.preco_kg, reciclado.peso_total,
+(material.preco_kg * reciclado.peso_total) as `Valor Total`, DATE_FORMAT(reciclado.data, "%d/%m/%Y") as ` Data Comum`
 FROM reciclado inner join material 
 ON reciclado.id_material = material.id_material
-inner join usuario
-ON usuario.id_usuario = reciclado.id_usuario
-WHERE reciclado.data between '2020-12-20' and '2020-12-21';
+WHERE reciclado.data between '2020-12-20' and '2021-12-21';
 
 
 
