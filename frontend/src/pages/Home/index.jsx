@@ -39,7 +39,10 @@ const Home = () =>{
             </div>
             <div className="row my-4">
                 <div className="col-12">
-                    <CarrousselSupporters />
+
+                <CarrousselSupporters />
+                    
+                   
                 </div>
             </div>
         </div>
