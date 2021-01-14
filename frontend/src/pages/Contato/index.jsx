@@ -1,81 +1,61 @@
 import React from 'react';
-// Libraries
-import { Form, FormGroup, Col, Button, Input, Label } from 'reactstrap';
 
 //Components
+import Title from '../../components/Title';
+import {FormContact} from '../../components/Form';
+
+// images
+import Whatsapp from './img/whatsapp.png';
+import Email from './img/email.png';
+
+//styles
+import './Contato.css'
 
 const Contato = () => {
 
 
     return (
-        <div className="container-fluid bg-light">
-            <div className="row my-2">
-                <h1 className="ml-2">Contato</h1>
-            </div>
-            <div className="row bg-primary my-4">
-                <div className="col-12 d-flex justify-content-center">
-                    <h2>Entre em Contato Conosco</h2>
+        <div className="container-fluid">
+            
+            <div className="row">
+                <div className="col-12">
+                    <Title title='Entre em contato conosco' /> 
                 </div>
             </div>
-            <div className="row bg-success my-4">
-                <div className="col-12 d-flex justify-content-center">
-                    <p>
-                        O projeto tem como finalidade reverter os valores que são gerados através da venda do lixo reciclável para ser utilizados como benefício de todos moradores.
-                        Cada material será avaliado, seus valores serão acumulados e administrados pelo parceiro e revertido em forma de manutenção para o condomínio (pintura, encanamento, reforma da área de lazer, jardinagem).
-                        </p>
-                        
+
+            <div className="row mx-5 my-3">
+                <div className="col-12 px-2">
+                    <p className="text-center">
+                        Quer receber a Re-ciclo na sua comunidade, deseja dar alguma sugestão ou ser um apoiador? 
+                    </p>     
+                    <p className="text-center">
+                        Deixe sua mensagem que retornaremos o contato o mais breve possível.
+                    </p>                  
                 </div>
-            </div>
-            <div className="row my-4">
-                <div className="col-12 col-sm-6 bg-primary">Whats</div>
-                <div className="col-12 col-sm-6 bg-success">E-mail</div>
-            </div>
-            <div className="row bg-success my-4">
-                <div className="col-12 d-flex justify-content-center">
-
-                
-                    <Form>
-                        <FormGroup row>
-                            <Label for="assunto" sm={3}>Assunto</Label>
-                            <Col sm={9}>
-                                <Input type="assunto" name="assunto" id="assunto" placeholder="Assunto da mensagem" />
-                            </Col>
-                        </FormGroup>
-                        <FormGroup row>
-                            <Label for="nome" sm={3}>Nome</Label>
-                            <Col sm={9}>
-                                <Input type="text" name="nome" id="nome" placeholder="Digite seu nome completo" />
-                            </Col>
-                        </FormGroup>
-
-                        <FormGroup row>
-                            <Label for="email" sm={3}>Email</Label>
-                            <Col sm={9}>
-                                <Input type="email" name="email" id="email" placeholder="Digite seu e-mail" />
-                            </Col>
-                        </FormGroup>
-
-                        <FormGroup row>
-                            <Label for="telephone" sm={3}>Telefone</Label>
-                            <Col sm={9}>
-                                <Input type="tel" name="telephone" minLength="10" maxLength="11" id="telephone" placeholder="Digite seu celular com DDD  Ex: 11999995555" />
-                            </Col>
-                        </FormGroup>
-
-                        <FormGroup row>
-                            <Label for="repeat-password" sm={3}>Confirmar Senha</Label>
-                            <Col sm={9}>
-                                <Input type="password" name="repeat-password" id="repeat-password" placeholder="Confirme sua senha" />
-                            </Col>
-                        </FormGroup>
-                        
-                            
+            </div>            
+        
+            <div className="row m-5">
+                <div className="col-12 col-sm-6">                    
                         <div className="d-flex justify-content-center">
-                            <Button className="mt-4 btn-register" size="lg">Enviar</Button>
-                        </div>
-                    </Form>
+                            <img src={Whatsapp} alt="Whatsapp" className="mx-2"/>
+                            <p className="text-contact">(11) 99999-9999</p>
+                        </div>                    
+                </div>
+
+                <div className="col-12 col-sm-6">                    
+                        <div className="d-flex justify-content-center">
+                            <img src={Email} alt="Email" className="mx-2"  />
+                            <p className="text-contact">contato@re-ciclo.com.br</p>
+                        </div>                    
                 </div>
             </div>
+
+            <div className="row m-auto d-flex justify-content-center">
+                <div className="col-12 col-sm-7">
+                    <FormContact />                    
+                </div>
+            </div>
+
         </div>
     );
 }

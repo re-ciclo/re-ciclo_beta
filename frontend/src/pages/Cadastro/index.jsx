@@ -4,13 +4,11 @@ import React from 'react';
 
 //Components
 import Title from '../../components/Title';
-import FormRegister from '../../components/Form';
+import {FormRegister} from '../../components/Form';
 
-
-//styles
-import './Cadastro.css';
-
+// images
 import ImgCadastro from './img/cadastro.jpg';
+
 
 const Cadastro = () => {
 
@@ -24,7 +22,7 @@ const Cadastro = () => {
 
             <div className="row mx-5">
 
-                <div className="col-12 col-sm-9 bg-form" >
+                <div className="col-12 col-sm-9" >
                     <FormRegister />
                 </div>
 
