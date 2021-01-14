@@ -1,6 +1,8 @@
 <?php
 
- 
+header("Access-Control-Allow-Origin:*");
+header("Content-type: json"); 
+
 include_once("../Connection/Connection.php");
 
 
@@ -26,14 +28,17 @@ class Usuario
     public function registerUsuario()
     {
         $connection = Connection::getDb();
-                                                       
-        $stmt = $connection->query("INSERT INTO usuarios(nome, email, telefone, senha) values ('$this->nome', '$this->email', '$this->telefone', '$this->senha')");
+        
+         $stmt = $connection->query("INSERT INTO usuario
+         (nome, email, telefone, senha) VALUES 
+         ('$this->nome', '$this->email', '$this->telefone', '$this->senha')");
  
-        //Verifica quantas linhas foram afetadas 
-        if ($stmt->rowCount() > 0) {
-            return true;
-        } else {
-            return false;
-        }
+        // Verifica quantas linhas foram afetadas 
+            if ($stmt->rowCount() > 0) {
+                return true;
+            } else {
+                return false;
+            }
+            
     }
 }
