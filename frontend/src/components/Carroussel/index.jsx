@@ -27,7 +27,7 @@ import {Carousel} from 'react-bootstrap';
 import './Carroussel.css';        
 
 
-export const Carroussel = () => {
+ export const Carroussel = () => {
  
 
     return (
@@ -87,6 +87,7 @@ export const Carroussel = () => {
 </>
     );
 }
+
  
 
 
@@ -129,8 +130,5 @@ const CarrousselSupporters = () => {
    
   );
 }
-
-
-
 
 
