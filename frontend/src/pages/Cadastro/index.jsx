@@ -4,7 +4,7 @@ import React from 'react';
 
 //Components
 import Title from '../../components/Title';
-import FormRegister from '../../components/Form';
+import {FormRegister} from '../../components/Form';
 
 
 //styles
