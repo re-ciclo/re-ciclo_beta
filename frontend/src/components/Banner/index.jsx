@@ -24,7 +24,7 @@ export const BannerConsume = () =>{
                                 <p>Conheça agora o significado de cada cor :)</p>
                             </Card.Text>
 
-                            <Card.Link href="#">
+                            <Card.Link href="#" className="d-flex justify-content-center">
                                 <Button className="btn-info">Saiba mais</Button>
                             </Card.Link>                            
                         </Card.Body>
