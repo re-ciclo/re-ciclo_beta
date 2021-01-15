@@ -18,14 +18,14 @@ import './projeto.css';
 const Projeto = () => {
 
     return (
-        <div className="container-fluid bg-light">
+        <div className="container-fluid bg-white">
             <div className="row my-2">
                 <h1 className="ml-2"></h1>
             </div>
             <div className="row my-4">
-                <div className="col-12 col-sm-6 bg-light">
+                <div className="col-12 col-sm-6 bg-white">
 
-                <Title title='Comunidade Marananã' />
+               <h2> Maracanã</h2>
 
                     <p> A comunidade Maracanã, fica localizada na região Sul de São Paulo.
                 Rodeada de prédios populares.</p>
@@ -35,7 +35,7 @@ const Projeto = () => {
 
 
                 </div>
-                <div className="col-12 col-sm-4  bg-light">
+                <div className="col-12 col-sm-4  bg-white">
                     <Carousel>
                         <Carousel.Item>
                             <img
@@ -70,7 +70,7 @@ const Projeto = () => {
                 </div>
             </div>
             <div className="row my-4">
-                <div className="col-12 col-sm-6 bg-light">
+                <div className="col-12 col-sm-6 bg-white">
 
                     <Image src={imagem4} roundedCircle />
 
@@ -81,22 +81,22 @@ const Projeto = () => {
 
 
 
-                <div className="col-12 col-sm-6 bg-light">
-                <Title title=' Nosso Objetivo' />
+                <div className="col-12 col-sm-6 bg-white">
+               
                     <p> É reverter materias reciclados
                     em beneficios para as comunidades.</p>
 
                 </div>
             </div>
             <div className="row my-4">
-                <div className="col-12 col-sm-6  bg-light">
-                <Title title=' Assim,' />
+                <div className="col-12 col-sm-6  bg-white">
+                
                     <p>Com recursos convertidos pela a ação da reciclagem,
                      todos serão beneficiados</p>
                 </div>
                 
 
-                <div className="col-12 col-sm-6 bg-light">
+                <div className="col-12 col-sm-6 bg-white">
                     <Carousel>
                         <Carousel.Item>
                             <img
