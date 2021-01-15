@@ -6,7 +6,7 @@ const Title = (props) =>{
     return(
         <>
             <div className="w-100 p-4 bg-light">
-                <h3 className="text-center" >{ props.title }</h3>
+                <h4 className="text-center" >{ props.title }</h4>
             </div>
             
         </>
