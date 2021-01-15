@@ -8,7 +8,9 @@ import {Termos, Politica} from '../Modal';
 import './Form.css';
 
 
-export const FormRegister = () =>{
+
+const FormRegister = () =>{
+
 
     // Dados Usuario - Pessoal
 
@@ -21,21 +23,49 @@ export const FormRegister = () =>{
 
     // // Dados Usuario - Endereco
 
-    // let [ cep, setCep] = React.useState("");
-    // let [ logradouro, setLogradouro] = React.useState("");
-    // let [ complemento, setComplemento] = React.useState("");
-    // let [ bairro, setBairro] = React.useState("");
-    // let [ localidade, setLocalidade] = React.useState("");
-    // let [ uf, setUf] = React.useState("");
-    // let [ numero, setNumero] = React.useState("");
+    let [ cep, setCep] = React.useState("");
+    let [ logradouro, setLogradouro] = React.useState("");
+    let [ complemento, setComplemento] = React.useState("");
+    let [ bairro, setBairro] = React.useState("");
+    let [ localidade, setLocalidade] = React.useState("");
+    let [ uf, setUf] = React.useState("");
+    let [ numero, setNumero] = React.useState("");
 
 
     // Mensagem de Confirmação de Cadastro
 
     let [mensagemSenha, setMensagemSenha] = React.useState(false);
+    let [mensagemEmail, setMensagemEmail] = React.useState(false);
     let [mensagem, setMensagem] = React.useState(false);
 
 
+    async function getCep(event){
+
+        // if(event =! 1){
+             
+            console.log(event.target.value);
+            console.log(event.target.value.length);         
+
+            if(event.target.value.length === 8){
+            setCep(event.target.value);
+        
+            // url da API
+            const url = `https://viacep.com.br/ws/${cep}/json/`;
+            
+            const response = await fetch(url);
+            const dados = await response.json();
+            
+                console.log(dados);
+                setLogradouro(dados.logradouro);
+                setComplemento(dados.complemento);
+                setLocalidade(dados.localidade);
+                setBairro(dados.bairro);
+                setUf(dados.uf);
+
+                
+        
+        }
+    }
 
 
     function cadastro(event){
@@ -61,9 +91,16 @@ export const FormRegister = () =>{
         })
         .then((response) => response.json())
         .then((dadosValidados) =>{
-            console.log(dadosValidados);
-            setMensagem(dadosValidados);
-            setTimeout( () => { setMensagem(false) },3000)
+            if(dadosValidados == true){
+                console.log(dadosValidados);
+                setMensagem(dadosValidados);
+                setTimeout( () => { setMensagem(false) },3000)
+            }else{
+                console.log(dadosValidados);
+                setMensagemEmail(true);
+                setTimeout( () => { setMensagemEmail(false) },3000)
+            }
+            
         })
 
 
@@ -118,51 +155,54 @@ export const FormRegister = () =>{
 
                 <FormGroup row>
                     <Label for="cep" sm={3}>CEP</Label>
-                    <Col sm={2}>
-                    <Input type="text" name="cep" minLength="8" maxLength="8" id="cep" placeholder="00000-000" required/>
+                    <Col sm={3}>
+                    <Input type="text" name="cep" minLength="8" maxLength="8" id="cep" placeholder="00000-000" onMouseMove={getCep} onChange={(event) => setCep(event.target.value)} required/>
                     </Col>
 
                     <Label for="logradouro" sm={2}>Logradouro</Label>
-                    <Col sm={5}>
-                    <Input type="text" name="logradouro" minLength="3" maxLength="50" id="logradouro" placeholder="..." required/>
+                    <Col sm={4}>
+                    <Input type="text" name="logradouro" minLength="3" maxLength="50" id="logradouro" placeholder="..." value={logradouro} onChange={(event) => setLogradouro(event.target.value)} required/>
+                    </Col>
+                </FormGroup>
+
+
+                <FormGroup row>
+                    <Label for="complemento" sm={3}>Complemento</Label>
+                    <Col sm={3}>
+                    <Input type="text" name="complemento" minLength="3" maxLength="50" id="complemento" placeholder="..." value={complemento} onChange={(event) => setComplemento(event.target.value)} />
+                    </Col>
+
+                    <Label for="bairro" sm={2}>Bairro</Label>
+                    <Col sm={4}>
+                    <Input type="text" name="bairro" minLength="3" maxLength="50" id="bairro" placeholder="..."  value={bairro} onChange={(event) => setBairro(event.target.value)} required/>
                     </Col>
                 </FormGroup>
 
                 <FormGroup row>
-                    <Label for="numero" sm={3}>Nº</Label>
+                    <Label for="localidade" sm={3}>Cidade</Label>
                     <Col sm={2}>
-                    <Input type="text" name="numero" minLength="1" maxLength="5" id="numero" placeholder="..." required/>
-                    </Col>
-
-                    <Label for="complemento" sm={2}>Complemento</Label>
-                    <Col sm={5}>
-                    <Input type="text" name="complemento" minLength="3" maxLength="50" id="complemento" placeholder="..." required/>
-                    </Col>                    
-                </FormGroup>
-
-                <FormGroup row>
-                    <Label for="bairro" sm={3}>Bairro</Label>
-                    <Col sm={3}>
-                    <Input type="text" name="bairro" minLength="3" maxLength="50" id="bairro" placeholder="..." required/>
-                    </Col>
-
-                    <Label for="localidade" sm={1}>Cidade</Label>
-                    <Col sm={3}>
-                    <Input type="text" name="cidade" minLength="3" maxLength="50" id="cidade" placeholder="..." required/>
+                    <Input type="text" name="localidade" minLength="3" maxLength="50" id="localidade" placeholder="..." value={localidade} onChange={(event) => setLocalidade(event.target.value)} required/>
                     </Col>
 
                     <Label for="uf" sm={1}>Uf</Label>
-                    <Col sm={1}>
-                    <Input type="text" name="uf" minLength="2" maxLength="2" id="uf" placeholder="..." required/>
-                    </Col>                    
-                </FormGroup>                
+                    <Col sm={3}>
+                    <Input type="text" name="uf" minLength="2" maxLength="2" id="uf" placeholder="..." value={uf} onChange={(event) => setUf(event.target.value)} required/>
+                    </Col>
+
+                    <Label for="numero" sm={1}>Nº</Label>
+                    <Col sm={2}>
+                    <Input type="text" name="numero" minLength="1" maxLength="5" id="numero" placeholder="..." value={numero} onChange={(event) => setNumero(event.target.value)} required/>
+                    </Col>
+                </FormGroup>
+                
 
                 <FormGroup check className="mt-4">
                     <Label check>
-                        <Input type="checkbox" name="check" id="check" />{' '}
+                        <Input type="checkbox" name="check" id="check" required />{' '}
                         Criando sua conta você concorda com nossos <span className="link"><Termos/></span> e nossa <span className="link"><Politica/></span>
                     </Label>
                 </FormGroup>
+
 
                 <div className="d-flex justify-content-center">
                     <Button className="mt-4 btn-register" size="lg">Cadastrar</Button>{' '}
@@ -174,62 +214,11 @@ export const FormRegister = () =>{
                         {
                             mensagemSenha && <div class=" d-flex alert alert-danger mx-auto my-4 w-100 justify-content-around" role="alert">As senhas precisam ser iguais</div>
                         }
+                        {
+                            mensagemEmail && <div class=" d-flex alert alert-danger mx-auto my-4 w-100 justify-content-around" role="alert">E-mail já cadastrado!</div>
+                        }
         </>
     );
 }
 
-export const FormContact = () =>{
-
-    return(
-        <>
-        
-            <Form className="bg-form">
-                <FormGroup row>
-                <Label for="nome" sm={3}>Nome</Label>
-                <Col sm={9}>
-                <Input type="text" name="nome" id="nome" placeholder="Digite seu nome completo" />
-                </Col>
-                </FormGroup>
-                
-                <FormGroup row>
-                <Label for="email" sm={3}>Email</Label>
-                <Col sm={9}>
-                <Input type="email" name="email" id="email" placeholder="Digite seu e-mail" />
-                </Col>
-                </FormGroup>
-                
-                <FormGroup row>
-                <Label for="telefone" sm={3}>Telefone</Label>
-                <Col sm={9}>
-                <Input type="tel" name="telephone" minLength="10" maxLength="11" id="telephone" placeholder="Digite seu celular com DDD Ex: 11999995555" />
-                </Col>
-                </FormGroup>
-                
-                <FormGroup row>
-                <Label for="select"sm={3}>Assunto</Label>
-                <Col sm={9}>
-                <Input type="select" name="select" id="select">
-                <option selected>Escolha o assunto</option>
-                <option>Solicitar informação</option>
-                <option>Elogio</option>
-                <option>Sugestão</option>
-                <option>Reclamação</option>
-                <option>Outro</option>
-                </Input>
-                </Col>
-                </FormGroup> 
-                
-                <FormGroup row>
-                <Label for="text" sm={3}>Mensagem</Label>
-                <Col sm={9}>
-                <Input type="textarea" name="text" id="text" />
-                </Col>
-                </FormGroup>
-            
-                <div className="d-flex justify-content-center">
-                <Button className="mt-4 btn-register" size="lg">Enviar</Button>
-                </div>
-            </Form>
-        </>
-    );
-}    
+export default FormRegister;

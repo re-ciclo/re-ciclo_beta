@@ -28,17 +28,46 @@ class Usuario
     public function registerUsuario()
     {
         $connection = Connection::getDb();
-        
-         $stmt = $connection->query("INSERT INTO usuario
-         (nome, email, telefone, senha) VALUES 
-         ('$this->nome', '$this->email', '$this->telefone', '$this->senha')");
- 
-        // Verifica quantas linhas foram afetadas 
+
+
+        // verifica se há e-mail repetido
+        $verificaEmail = $connection->query("SELECT * FROM usuario WHERE email = '$this->email'");
+                                             
+        // Verifica quantas linhas foram afetadas, é importante a query do e-mail não ter 1, pois significa que há e-mail já cadastrado, sendo assim vai cair em false      
+        if($verificaEmail->rowCount() <= 0){
+            // stmt equivale a statement (declaração ou afirmação)
+            $stmt = $connection->query("INSERT INTO usuario
+            (nome, email, telefone, senha) VALUES 
+            ('$this->nome', '$this->email', '$this->telefone', '$this->senha')");
+                
             if ($stmt->rowCount() > 0) {
                 return true;
             } else {
                 return false;
             }
             
+        }else{
+            return false;
+        }
+        
     }
+
+
+    public function loginUsuario(){
+
+        $connection = Connection::getDb();
+
+        $stmt = $connection->query("SELECT * FROM usuario WHERE email = '$this->email' and senha = '$this->senha'");
+
+        if ($stmt->rowCount() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
+
+
+
 }
