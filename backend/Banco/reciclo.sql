@@ -1,6 +1,6 @@
 CREATE DATABASE reciclo;
 USE reciclo;
-DROP database reciclo;
+
 
 CREATE TABLE usuario
 (
@@ -35,10 +35,18 @@ data datetime DEFAULT CURRENT_TIMESTAMP NOT NULL,
 FOREIGN KEY (id_usuario)  REFERENCES  usuario (id_usuario)
 );
 
+
+
+
+
 INSERT INTO endereco (id_usuario, cep, logradouro, complemento, bairro, localidade, uf, numero) VALUES
 (1,'05000-010','logradouro A','complemento A', 'bairro A', 'localidade A', 'uf A','10'),
 (2,'05000-020','logradouro P','complemento P', 'bairro P', 'localidade P', 'uf P','20'),
 (3,'05000-030','logradouro W','complemento W', 'bairro W', 'localidade W', 'uf W','30');
+
+
+SELECT count(id_usuario)+1 FROM endereco;
+
 
 
 CREATE TABLE material
@@ -72,10 +80,10 @@ FOREIGN KEY (id_usuario)  REFERENCES  usuario (id_usuario),
 FOREIGN KEY (id_material)  REFERENCES  material (id_material)
 );
 
+SELECT * FROM reciclado;
 
 
-
-drop table reciclado;
+-- drop table reciclado;
 
 -- Obs: não é preciso por a data, pois pega automaticamente, porém para testar períodos, inseri datas
 INSERT INTO reciclado (id_usuario, id_material, peso_total, data) VALUES
@@ -89,7 +97,7 @@ INSERT INTO reciclado (id_usuario, id_material, peso_total, data) VALUES
 
 -- Seleção sem data
 SELECT usuario.nome, usuario.id_usuario, material.id_material, reciclado.id_reciclado, material.nome, material.preco_kg, reciclado.peso_total,
-(material.preco_kg * reciclado.peso_total) as `Valor Total`
+(material.preco_kg * reciclado.peso_total) as `Valor Total`, reciclado.data
 FROM reciclado inner join material 
 ON reciclado.id_material = material.id_material
 inner join usuario
@@ -112,8 +120,20 @@ id_mensagem int AUTO_INCREMENT PRIMARY KEY,
 assunto varchar(80) NOT null,
 nome varchar (80) not null,
 email varchar (80) not null,
-telefone int(14) null,
-DATA datetime DEFAULT (CURRENT_TIMESTAMP)
-
+telefone varchar(14) null,
+data datetime DEFAULT CURRENT_TIMESTAMP not null
 );
+
+INSERT INTO mensagem (assunto, nome, email, telefone) VALUES
+('reciclados','fulanoA','fulanoA@email.com','3333-3333'),
+('parcerias','fulanoB','fulanoB@email.com','4444-4444'),
+('sugestoes','fulanoC','fulanoC@email.com','5555-5555');
+
+
+
+
+
+
+
+
 

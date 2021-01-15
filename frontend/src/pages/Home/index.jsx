@@ -3,8 +3,8 @@ import React from 'react';
 // Components
 import { BannerConsume, BannerInfo } from '../../components/Banner';
 import CardsReciclo from '../../components/Card';
-import {CarrousselSupporters} from '../../components/Carroussel';
-import Carroussel from '../../components/Carroussel';
+import CarrousselSupporters from '../../components/Carroussel';
+import {Carroussel} from '../../components/Carroussel';
 
 // Styles
 import './Home.css';
@@ -39,8 +39,9 @@ const Home = () =>{
             </div>
             <div className="row my-4">
                 <div className="col-12">
-
                 <CarrousselSupporters />
+
+                
                     
                    
                 </div>

@@ -1,11 +1,12 @@
 import React from 'react';
-import imagem1 from './img/img-1.jpg';
-import imagem2 from './img/img-2.jpg';
-import imagem3 from './img/img-3.jpg';
-import imagem4 from './img/img-4.png';
+import imagem1 from './img/img-1.png';
+import imagem2 from './img/img-2.png';
+import imagem3 from './img/img-3.png';
+import imagem4 from './img/img-5.jpg';
 import imagem5 from './img/img-5.png';
 import imagem6 from './img/img-6.png';
 import { Carousel, Cont, Image } from 'react-bootstrap';
+import Title from '../../components/Title';
 
 
 
@@ -24,7 +25,7 @@ const Projeto = () => {
             <div className="row my-4">
                 <div className="col-12 col-sm-6 bg-light">
 
-                    <h1>COMUNIDADE MARACANÃ </h1>
+                <Title title='Comunidade Marananã' />
 
                     <p> A comunidade Maracanã, fica localizada na região Sul de São Paulo.
                 Rodeada de prédios populares.</p>
@@ -81,20 +82,21 @@ const Projeto = () => {
 
 
                 <div className="col-12 col-sm-6 bg-light">
-                    <p> Nosso objetivo, é reverter materias reciclados
+                <Title title=' Nosso Objetivo' />
+                    <p> É reverter materias reciclados
                     em beneficios para as comunidades.</p>
 
                 </div>
             </div>
             <div className="row my-4">
                 <div className="col-12 col-sm-6  bg-light">
-
-                <p> Assim, com recursos convertidos pela a ação da reciclagem,
+                <Title title=' Assim,' />
+                    <p>Com recursos convertidos pela a ação da reciclagem,
                      todos serão beneficiados</p>
                 </div>
                 
 
-                <div className="col-12 col-sm-4 bg-success">
+                <div className="col-12 col-sm-6 bg-light">
                     <Carousel>
                         <Carousel.Item>
                             <img
@@ -124,7 +126,9 @@ const Projeto = () => {
 
             <div className="row my-4">
                 <div className="col-12 col-sm-6 bg-success">Carrosell</div>
-                <div className="col-12 col-sm-6 bg-primary">Texto</div>
+                <div className="col-12 col-sm-6 bg-primary">
+                    
+                </div>
                 
             </div>
         </div>

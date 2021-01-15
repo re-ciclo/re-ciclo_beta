@@ -2,7 +2,7 @@
 
 
 
-include_once("../Model/ClassTable/Reciclados.php");
+include_once("../Model/ClassTable/Reciclado.php");
 
 $dados = Reciclado::getAll();
 

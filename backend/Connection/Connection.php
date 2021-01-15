@@ -7,7 +7,7 @@ class Connection
         $conn = new PDO(
             "mysql:host=localhost;dbname=reciclo;charset=utf8",
             "root",
-            "yuyuhakusho"
+            ""
         );
         
         if ($conn) {
