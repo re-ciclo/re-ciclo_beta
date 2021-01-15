@@ -2,6 +2,11 @@ a {
     padding-left: 0rem;
 }
 
+.bg-form {
+    background-color: #ECFEF8;
+    padding: 3rem;
+}
+
 .btn-register {
     background-color: #00B9A3;
     border: #00B9A3;
