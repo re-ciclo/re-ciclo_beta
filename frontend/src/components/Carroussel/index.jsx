@@ -20,10 +20,11 @@ import Akatu from './img/akatu.png';
 import Maeda from './img/maeda.png';
 
 // Styles
-import './Carroussel.css';    
+import './Carroussel.css';      
 
 
-export const Carroussel = () => {
+
+ export const Carroussel = () => {
  
 
     return (
@@ -81,7 +82,9 @@ export const Carroussel = () => {
     );
 }
 
+
  
+
 
 
 export const CarrousselSupporters = () => {
@@ -123,3 +126,5 @@ export const CarrousselSupporters = () => {
    
   );
 }
+
+
