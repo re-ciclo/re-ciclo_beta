@@ -85,7 +85,7 @@ import './Carroussel.css';
  
 
 
-const CarrousselSupporters = () => {
+export const CarrousselSupporters = () => {
 
   return (
 
