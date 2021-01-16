@@ -38,8 +38,6 @@ FOREIGN KEY (id_usuario)  REFERENCES  usuario (id_usuario)
 
 
 
-drop table usuario;
-
 INSERT INTO endereco (id_usuario, cep, logradouro, complemento, bairro, localidade, uf, numero) VALUES
 (1,'05000-010','logradouro A','complemento A', 'bairro A', 'localidade A', 'uf A','10'),
 (2,'05000-020','logradouro P','complemento P', 'bairro P', 'localidade P', 'uf P','20'),
