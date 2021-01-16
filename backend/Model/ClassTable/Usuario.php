@@ -54,6 +54,16 @@ class Usuario
     }
 
 
+    public function updateUsuario()
+    {
+        $connection = Connection::getDb();
+
+        $connection->query("UPDATE usuario
+        SET nome = '$this->nome', email = '$this->email', telefone = '$this->telefone', senha = '$this->senha'
+        WHERE id_usuario = '$this->id_usuario'");
+    }
+
+
     public function loginUsuario(){
 
         $connection = Connection::getDb();
@@ -74,8 +84,5 @@ class Usuario
     }
 
 
-    
-
-
-
+   
 }
