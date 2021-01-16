@@ -119,7 +119,7 @@ FROM reciclado inner join material
 ON reciclado.id_material = material.id_material
 WHERE reciclado.data between '2020-12-20' and '2021-12-21';
 
-
+-- < now()-7
 
 CREATE TABLE mensagem
 (
@@ -145,7 +145,8 @@ SELECT * FROM usuario WHERE email = "alex@gmail.com";
 SELECT * FROM usuario WHERE email = "alex@gmail.com" and senha = "11111";
 
 
-
+SELECT * FROM usuario;
+Update usuario set email = 'aaaa@aaaa.com' WHERE id_usuario = 8;
 
 
 

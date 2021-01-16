@@ -6,26 +6,38 @@ import Title from '../../components/Title';
 
 
 const AreaUsuarioResultados = () =>{
+    const verifica = localStorage.getItem('@frontend/nivel_acesso');
 
-    return(
-        <div className="container-fluid">
 
-                <Title title='Área do Usuário' />            
+    if(verifica==0){
+        return(
+            <div className="container-fluid">
 
-            <div className="row" >
-                <div className="col-12 col-sm-3 d-flex justify-content-center">
-                    <Sidebar /> 
-                </div>  
-                
-                <div className="col-12 col-sm-6">
-                    Area Resultados
+                    <Title title='Área do Usuário' />            
+
+                <div className="row" >
+                    <div className="col-12 col-sm-3 d-flex justify-content-center">
+                        <Sidebar /> 
+                    </div>  
+                    
+                    <div className="col-12 col-sm-6">
+                        Area Resultados
+                    </div>
+                    <div className="col-12 col-sm-3">
+                        Imagem
+                    </div>  
                 </div>
-                <div className="col-12 col-sm-3">
-                    Imagem
-                </div>  
             </div>
-        </div>
-    );
+        );
+    }else{
+        return(
+            <>
+                <div onLoad={ window.location.href = "http://localhost:3000/"}>
+                    
+                </div>
+            </>
+        );
+    }
 }
 
 
