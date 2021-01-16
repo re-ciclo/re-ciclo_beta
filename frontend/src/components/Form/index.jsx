@@ -47,23 +47,21 @@ export const FormRegister = () =>{
             console.log(event.target.value.length);         
 
             if(event.target.value.length === 8){
-            setCep(event.target.value);
-        
-            // url da API
-            const url = `https://viacep.com.br/ws/${cep}/json/`;
+                setCep(event.target.value);
             
-            const response = await fetch(url);
-            const dados = await response.json();
-            
-                console.log(dados);
-                setLogradouro(dados.logradouro);
-                setComplemento(dados.complemento);
-                setLocalidade(dados.localidade);
-                setBairro(dados.bairro);
-                setUf(dados.uf);
-
+                // url da API
+                const url = `https://viacep.com.br/ws/${cep}/json/`;
                 
-        
+                const response = await fetch(url);
+                const dados = await response.json();
+                
+                    console.log(dados);
+                    setLogradouro(dados.logradouro);
+                    setComplemento(dados.complemento);
+                    setLocalidade(dados.localidade);
+                    setBairro(dados.bairro);
+                    setUf(dados.uf);
+
         }
     }
 
@@ -93,7 +91,7 @@ export const FormRegister = () =>{
         .then((dadosValidados) =>{
             if(dadosValidados == true){
                 console.log(dadosValidados);
-                setMensagem(dadosValidados);
+                setMensagem(true);
                 setTimeout( () => { setMensagem(false) },3000)
             }else{
                 console.log(dadosValidados);
@@ -275,4 +273,99 @@ export const FormContact = () =>{
             </Form>
         </>
     );
+}
+
+export const FormLogin = () =>{
+
+        let [mensagemVerificar, setMensagemVerificar] = React.useState(false);
+
+
+        // let [email, setEmail] = useState("");
+        // let [senha, setSenha] = useState("");
+
+
+        function acessar(event){
+                event.preventDefault();
+                console.log(event.target);
+
+                let formData = new FormData(event.target);
+                console.log("Form Data:")
+                console.log(formData.get("email"));
+                console.log(formData.get("senha"));
+
+                            
+                const url = "http://localhost/Recode%20Pro/ProjetoSqua07Entrega2/re-ciclo/backend/ReceiveData/getLogin.php";
+
+                fetch(url,{
+                    
+                    method: "POST",
+                    body: formData
+                    
+                })
+                .then((response) => response.json())
+                .then((dadosValidados) =>{
+                    if(dadosValidados[0]['id_usuario'] > 0){
+                        console.log(dadosValidados);
+                        
+                        localStorage.setItem('@frontend/id_usuario', dadosValidados[0]['id_usuario']);
+                        localStorage.setItem('@frontend/nome', dadosValidados[0]['nome']);
+                        localStorage.setItem('@frontend/email', dadosValidados[0]['email']);
+                        localStorage.setItem('@frontend/telefone', dadosValidados[0]['telefone']);
+                        localStorage.setItem('@frontend/nivel_acesso', dadosValidados[0]['nivel_acesso']);
+
+
+                        if(localStorage.getItem('@frontend/nivel_acesso') == 1){
+                            
+                            window.location.href = "http://localhost:3000/areaadm";
+                          }else{
+                            
+                            window.location.href = "http://localhost:3000/areausuario";
+                          }
+
+
+                    }else{
+                        console.log(dadosValidados);
+                        setMensagemVerificar(true);
+                        setTimeout( () => {setMensagemVerificar(false)},3000);
+                    }
+                    
+                })
+
+
+        }
+
+
+
+
+        return(
+            <>
+                <Form onSubmit={acessar} >
+                    <FormGroup row>
+                        <Label for="email" sm={3}>Email</Label>
+                        <Col sm={9}>
+                             <Input type="email" name="email" minLength="10" maxLength="50" id="email" placeholder="Digite seu e-mail" required/>
+                        </Col>
+                    </FormGroup>
+
+                    <FormGroup row>
+                        <Label for="senha" sm={3}>Senha</Label>
+                        <Col sm={9}>
+                            <Input type="password" minLength="3" maxLength="50" name="senha" id="senha" placeholder="Cadastre uma senha" required/>
+                        </Col>
+                    </FormGroup>
+
+                    
+
+                    <div className="d-flex justify-content-center">
+                        <Button className="mt-4 btn-register" size="lg">Acessar</Button>{' '}
+                    </div>              
+                </Form>
+                            
+                            {
+                                mensagemVerificar && <div class=" d-flex alert alert-danger mx-auto my-4 w-100 justify-content-around" role="alert">Senha e/ou email inválido!</div>
+                            }
+                        
+            </>
+        );
+
 }
