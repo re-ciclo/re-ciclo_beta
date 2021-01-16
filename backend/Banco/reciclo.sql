@@ -1,15 +1,16 @@
 CREATE DATABASE reciclo;
 USE reciclo;
-
+DROP database reciclo;
 
 CREATE TABLE usuario
 (
 id_usuario INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 nome varchar(80) NOT NULL,
-email varchar(80) NOT NULL,
+email varchar(80) UNIQUE NOT NULL,
 telefone varchar(14) NULL,
 senha VARCHAR(80) NOT NULL,
 nivel_acesso tinyint(1) DEFAULT 0 NOT NULL,
+UNIQUE (email),
 data datetime DEFAULT CURRENT_TIMESTAMP NOT NULL
 );
 
@@ -27,7 +28,7 @@ id_endereco INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 id_usuario INT NOT NULL,
 cep varchar(80) NOT NULL,
 logradouro varchar(80) NOT NULL,
-complemento varchar(80) NOT NULL,
+complemento varchar(80) NULL,
 bairro VARCHAR(80) NOT NULL,
 localidade VARCHAR(80) NOT NULL,
 uf VARCHAR(80) NOT NULL,
@@ -37,15 +38,17 @@ FOREIGN KEY (id_usuario)  REFERENCES  usuario (id_usuario)
 );
 
 
+drop table usuario;
 
-INSERT INTO endereco (id_usuario, cep, logradouro, complemento, bairro, localidade, uf, numero) VALUES
-(1,'05000-010','logradouro A','complemento A', 'bairro A', 'localidade A', 'uf A','10'),
-(2,'05000-020','logradouro P','complemento P', 'bairro P', 'localidade P', 'uf P','20'),
-(3,'05000-030','logradouro W','complemento W', 'bairro W', 'localidade W', 'uf W','30');
+INSERT INTO endereco (id_endereco, id_usuario, cep, logradouro, complemento, bairro, localidade, uf, numero) VALUES
+(null, 1,'05000-010','logradouro A','complemento A', 'bairro A', 'localidade A', 'uf A','10'),
+(2,'05000-020','logradouro P','complemento P', 'bairro P', 'localidade P', 'uf P','20');
+
 
 SELECT * FROM usuario;
 SELECT * FROM endereco;
 
+-- Lógica para criar um tipo de auto incremento no id_usuario que está em endereco
 SELECT count(id_usuario)+1 FROM endereco;
 
 
@@ -116,7 +119,7 @@ FROM reciclado inner join material
 ON reciclado.id_material = material.id_material
 WHERE reciclado.data between '2020-12-20' and '2021-12-21';
 
-
+-- < now()-7
 
 CREATE TABLE mensagem
 (
@@ -135,9 +138,15 @@ INSERT INTO mensagem (assunto, nome, email, telefone) VALUES
 
 
 
+-- Verifica se há e-mail repetido
+SELECT * FROM usuario WHERE email = "alex@gmail.com";
+
+-- Login 
+SELECT * FROM usuario WHERE email = "alex@gmail.com" and senha = "11111";
 
 
-
+SELECT * FROM usuario;
+Update usuario set email = 'aaaa@aaaa.com' WHERE id_usuario = 8;
 
 
 

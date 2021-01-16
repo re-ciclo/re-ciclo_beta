@@ -40,17 +40,29 @@
     
         
     // Valida cada registro
-                                 
+
+       
        $validateUsuario = $usuario->registerUsuario();
-       $validateEndereco = $endereco->registerEndereco();
+       if($validateUsuario == true){
+
+            $validateEndereco = $endereco->registerEndereco();
+
+             // Se ambos registro ocorrerem, vai passar o valor true
+                if($validateEndereco == true){
+                    echo json_encode(true);
+                }else{
+                    echo json_encode(false);
+                }
+       }else{
+
+            echo json_encode(false);
+       }
+
+
+
+       
  
 
 
-    // Se ambos registro ocorrerem, vai passar o valor true
-    if($validateUsuario == true && $validateEndereco == true){
-        
-        echo json_encode(true);
-    }else{
-        echo json_encode(false);
-    }
+   
 

@@ -13,6 +13,7 @@ import Contato from '../pages/Contato';
 
 // Menu Acesso
 import Cadastro from '../pages/Cadastro';
+import AmbienteLogin from '../pages/AmbienteLogin';
 
 // Area Usuário
 import AreaUsuario from '../pages/AreaUsuario';
@@ -40,10 +41,14 @@ const Routes = () =>{
 
                 {/* Menu Acesso*/}
                 <Route path="/cadastro" exact component={Cadastro} />
+                
 
 
+
+                <Route path="/ambientelogin" exact component={AmbienteLogin} />
                 
                  {/* Fora do Menu User */}
+                 
                 <Route path="/areausuario" exact component={AreaUsuario} />
                 <Route path="/dadosusuario" exact component={DadosUsuario} />
                 <Route path="/areausuarioresultados" exact component={AreaUsuarioResultados} />
@@ -52,7 +57,7 @@ const Routes = () =>{
 
                 {/* Fora do Menu Adm */}
                 <Route path="/areaadm" exact component={AreaAdm} />
-                <Route path="/areaAdmResultados" exact component={AreaAdmResultados} />
+                <Route path="/areaadmresultados" exact component={AreaAdmResultados} />
                 <Route path="/dadosadm" exact component={DadosAdm} />
                 <Route path="/areaadmcrud" exact component={AreaAdmCRUD} />
 

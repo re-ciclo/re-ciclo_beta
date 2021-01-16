@@ -50,19 +50,24 @@ function BaseMenu(props){
                                         key={variant}
                                         id={`dropdown-variants-${variant}`}
                                         variant={variant.toLowerCase()}
-                                        title={variant}
-                                    >
+                                        title={variant}>
+                                            
                                         <Dropdown.Item>
                                             <Nav.Link>
                                                 <Login/>
                                             </Nav.Link>
-
                                         </Dropdown.Item>
+
                                         <Dropdown.Item>
                                             <Nav.Link as={Link} href="/cadastro" to="/cadastro">Cadastro
                                             </Nav.Link>
                                         </Dropdown.Item>
-                                            
+                                        
+                                        <Dropdown.Item>
+                                            <Nav.Link as={Link} href="/ambientelogin" to="/ambientelogin">Ambiente
+                                            </Nav.Link>
+                                        </Dropdown.Item>
+
                                     </DropdownButton>
                                 ),
                             )}

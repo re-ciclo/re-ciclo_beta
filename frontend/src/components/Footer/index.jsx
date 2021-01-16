@@ -2,7 +2,8 @@ import React from 'react';
 
 // Libraries
 import { FaLinkedin, FaFacebookSquare, FaInstagramSquare, 
-FaWhatsappSquare, FaYoutube} from 'react-icons/fa'; 
+FaWhatsappSquare, FaYoutube} from 'react-icons/fa';
+
 
 //styles
 import './Footer.css';
@@ -12,69 +13,69 @@ const Footer = () => {
     return (
         <>
 
-            <footer class="bg-light text-center text-lg-start">
+            <footer className="bg-light text-center text-lg-start">
 
-                <div class="container p-4">
+                <div className="container p-4">
 
-                    <div class="row">
+                    <div className="row">
 
                         <div className="col-lg-4 col-md-12 mb-4 mb-md-0">                            
 
                             <p>
-                                <h5>Redes Sociais</h5>
+                                <h5 className="txt-footer">Redes Sociais</h5>
 
                             <div className="d-flex justify-content-center">
                                 <div className="icons">                                    
-                                    <FaLinkedin />
+                                    <a href="#" className="img-icons"><FaLinkedin size="1.4x"/></a>
                                 </div>
                                 <div className="icons">                                    
-                                    <FaFacebookSquare />
+                                    <a href="#" className="img-icons"><FaFacebookSquare size="1.4x"/></a>
+                                </div> 
+                                <div className="icons">                                  
+                                    <a href="#" className="img-icons"><FaInstagramSquare size="1.4x"/></a>
                                 </div> 
                                 <div className="icons">                                    
-                                    <FaInstagramSquare />
+                                    <a href="#" className="img-icons"><FaWhatsappSquare size="1.4x"/></a>
                                 </div> 
                                 <div className="icons">                                    
-                                    <FaWhatsappSquare />
-                                </div> 
-                                <div className="icons">                                    
-                                    <FaYoutube />
+                                    <a href="#" className="img-icons"><FaYoutube size="1.4x"/></a>
                                 </div> 
                             </div>                            
                             </p>
                         </div>
 
-                        <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
-                            <h5>Sobre a Re-ciclo</h5>
+                        <div className="col-lg-4 col-md-6 mb-4 mb-md-0">
+                            <h5 className="txt-footer">Sobre a Re-ciclo</h5>
 
-                            <ul class="list-unstyled mb-0">
+                            <ul className="list-unstyled mb-0">
                                 <li>
-                                    <a href="/areciclo" class="text-dark">A Reciclo</a>
+                                    <a href="/areciclo" className="text-dark">A Reciclo</a>
                                 </li>
                                 <li>
-                                    <a href="/areciclo" class="text-dark">Nossa História</a>
+                                    <a href="/areciclo" className="text-dark">Nossa História</a>
                                 </li>
                                 <li>
-                                    <a href="/projeto" class="text-dark">Projeto</a>
+                                    <a href="/projeto" className="text-dark">Projeto</a>
                                 </li>                               
                             </ul>
                         </div>
 
-                        <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
-                            <h5>Contato</h5>
+                        <div className="col-lg-4 col-md-6 mb-4 mb-md-0">
+                            <h5 className="txt-footer">Contato</h5>
 
-                            <ul class="list-unstyled">
+                            <ul className="list-unstyled">
                                 <li>
-                                    <a href="/contato" class="text-dark">Fale Conosco</a>
+                                    <a href="/contato" className="text-dark">Fale Conosco</a>
                                 </li>
                                 <li>
-                                    <a href="#" class="text-dark">Seja um Parceiro</a>
+                                    <a href="#" className="text-dark">Seja um Parceiro</a>
                                 </li>                               
                             </ul>
                         </div>
                     </div>
 
                 </div>
-                <div class="text-center p-3" >
+                <div className="text-center p-3 copy" >
                     © Copyright @2021 Re-ciclo
                 </div>
             </footer>
