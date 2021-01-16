@@ -21,7 +21,7 @@ class Endereco
     {
         $connection = Connection::getDb();
 
-        $stmt = $connection->query("SELECT count(id_usuario)+1 FROM endereco");
+        $stmt = $connection->query("SELECT * FROM endereco");
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
         
     }
@@ -51,7 +51,7 @@ class Endereco
 
 
         //Verifica quantas linhas foram afetadas 
-            if ($stmt->rowCount() > 0) {
+            if ($stmt2->rowCount() > 0) {
                 return true;
             } else {
                 return false;

@@ -1,38 +1,48 @@
 import React from 'react';
-// Libraries
 
 //Components
+import {SidebarAdm} from '../../components/Sidebar';
+import Title from '../../components/Title';
 
-const AreaAdmResultados = () =>{
 
-    return(
-        <div className="container-fluid bg-light">
-            <div className="row my-2">
-                <div className="col-2 bg-secondary">
+const AreaAdmResultados = () => {
 
- 
+    const verifica = localStorage.getItem('@frontend/nivel_acesso');
 
-                    <ul class="list-group">
-                        <li  class="list-group-item list-group-item-action" aria-current="true"><a href="areaadm">Área Principal</a></li>
-                        <li  class="list-group-item list-group-item-action active"><a href="areaadmresultados">Painel de Consulta</a></li>
-                        <li  class="list-group-item list-group-item-action"><a href="dadosadm">Meus Dados</a></li>
-                        <li  class="list-group-item list-group-item-action"><a href="areaadmcrud">Gerenciamento</a></li>
-                    </ul>
-                </div>
-                <div className="col-10">
-                    <div className="row my-2 d-flex justify-content-center">
-                        <h2 className="ml-2">Administrador - Painel de Resultados </h2>
+
+    if(verifica==1){
+        return (
+            <div className="container-fluid">
+
+                    <Title title='Administrador - Painel de Resultados' />            
+
+                <div className="row" >
+                    <div className="col-12 col-sm-3 d-flex justify-content-center">
+                        <SidebarAdm /> 
+                    </div>  
+                    
+                    <div className="col-12 col-sm-6">
+                        Area do Adm - Resultados
                     </div>
-                    <div className="row my-4">
-                        <div className="col-12 col-sm-8 bg-primary">Formulário</div>
-                        <div className="col-12 col-sm-4 bg-success">Imagem</div>
-                    </div>
+                    <div className="col-12 col-sm-3">
+                        Imagem
+                    </div>  
                 </div>
             </div>
-
-        </div>
-    );
+        );
+    }else{
+        return(
+            <>
+                <div onLoad={ window.location.href = "http://localhost:3000/"}>
+                    
+                </div>
+            </>
+        );
+    }
 }
 
 
 export default AreaAdmResultados;
+
+
+
