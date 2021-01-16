@@ -62,7 +62,12 @@ function BaseMenu(props){
                                             <Nav.Link as={Link} href="/cadastro" to="/cadastro">Cadastro
                                             </Nav.Link>
                                         </Dropdown.Item>
-                                            
+                                        
+                                        <Dropdown.Item>
+                                            <Nav.Link as={Link} href="/ambientelogin" to="/ambientelogin">Ambiente
+                                            </Nav.Link>
+                                        </Dropdown.Item>
+
                                     </DropdownButton>
                                 ),
                             )}

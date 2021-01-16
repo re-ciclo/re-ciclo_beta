@@ -41,6 +41,7 @@ class Usuario
             ('$this->nome', '$this->email', '$this->telefone', '$this->senha')");
                 
             if ($stmt->rowCount() > 0) {
+
                 return true;
             } else {
                 return false;
@@ -58,15 +59,22 @@ class Usuario
         $connection = Connection::getDb();
 
         $stmt = $connection->query("SELECT * FROM usuario WHERE email = '$this->email' and senha = '$this->senha'");
-
+        
+        
+        
         if ($stmt->rowCount() > 0) {
-            return true;
+
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+            
         } else {
+            
             return false;
         }
 
     }
 
+
+    
 
 
 
