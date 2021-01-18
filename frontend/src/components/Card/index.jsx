@@ -4,9 +4,9 @@ import {Link} from 'react-router-dom';
 //Libraries
 
 import { MDBCard, MDBCardTitle, MDBBtn, MDBRow, MDBCol, MDBIcon} from 'mdbreact';
-import {Nav} from 'react-bootstrap';
 
-import { Card, CardGroup,  Button, Nav } from 'react-bootstrap';
+
+import { Nav, Card, CardGroup,  Button } from 'react-bootstrap';
 
 //styles
 import './Card.css';

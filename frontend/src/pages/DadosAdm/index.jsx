@@ -23,20 +23,6 @@ const DadosAdm = () => {
 
     
     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     if(verifica==1){
         return (
             <div className="container-fluid">
