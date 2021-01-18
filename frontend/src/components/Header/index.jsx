@@ -19,26 +19,37 @@ function BaseMenu(props){
     
         return( 
             
-                    <Navbar className="navbar-dark py-1 px-5 menu fixed-top" expand="lg">
+                    <Navbar className="navbar-dark py-1 px-5 fixed-top menu" expand="lg">
                         <Navbar.Brand as={Link} href="/" to = "/">
-                            <img src={Logo} alt="logomarca Re-ciclo"/>
+                            <img src={Logo} alt="logomarca Re-ciclo" className="img-logo"/>
                         </Navbar.Brand>
                         <Navbar.Toggle aria-controls="item-menu"/>
                         
-                        <Navbar.Collapse id="item-menu" className="justify-content-between">
+                        <Navbar.Collapse id="item-menu" className="justify-content-between font-weight-bold">
 
                             <Nav activeKey={location.pathname} className="w-75 d-flex justify-content-around link">
                                 <Nav.Item>
-                                    <Nav.Link as={Link} href="/" to = "/">Início</Nav.Link>
+                                    <Nav.Link as={Link} href="/" to = "/" className="font-menu">
+                                        Início
+                                    </Nav.Link>
                                 </Nav.Item>
+
                                 <Nav.Item>
-                                    <Nav.Link as={Link} href="/reciclo" to = "/areciclo">A Reciclo</Nav.Link>
+                                    <Nav.Link as={Link} href="/reciclo" to = "/areciclo" className="font-menu">
+                                        A Reciclo
+                                    </Nav.Link>
                                 </Nav.Item>
+
                                 <Nav.Item>
-                                    <Nav.Link as={Link} href="/projeto" to = "/projeto">Projeto</Nav.Link>
+                                    <Nav.Link as={Link} href="/projeto" to = "/projeto" className="font-menu">
+                                        Projeto
+                                    </Nav.Link>
                                 </Nav.Item>
+
                                 <Nav.Item>
-                                    <Nav.Link as={Link} href="/lojas" to = "/contato">Contato</Nav.Link>
+                                    <Nav.Link as={Link} href="/lojas" to = "/contato" className="font-menu">
+                                        Contato
+                                    </Nav.Link>
                                 </Nav.Item>
                             </Nav>
                             
@@ -59,12 +70,14 @@ function BaseMenu(props){
                                         </Dropdown.Item>
 
                                         <Dropdown.Item>
-                                            <Nav.Link as={Link} href="/cadastro" to="/cadastro">Cadastro
+                                            <Nav.Link as={Link} href="/cadastro" to="/cadastro">
+                                                Cadastro
                                             </Nav.Link>
                                         </Dropdown.Item>
                                         
                                         <Dropdown.Item>
-                                            <Nav.Link as={Link} href="/ambientelogin" to="/ambientelogin">Ambiente
+                                            <Nav.Link as={Link} href="/ambientelogin" to="/ambientelogin">
+                                                Ambiente
                                             </Nav.Link>
                                         </Dropdown.Item>
 

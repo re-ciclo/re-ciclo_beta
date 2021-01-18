@@ -26,19 +26,19 @@ const Footer = () => {
 
                             <div className="d-flex justify-content-center">
                                 <div className="icons">                                    
-                                    <a href="#" className="img-icons"><FaLinkedin size="1.4x"/></a>
+                                    <a href="#" className="img-icons"><FaLinkedin size="1.6x"/></a>
                                 </div>
                                 <div className="icons">                                    
-                                    <a href="#" className="img-icons"><FaFacebookSquare size="1.4x"/></a>
+                                    <a href="#" className="img-icons"><FaFacebookSquare size="1.6x"/></a>
                                 </div> 
                                 <div className="icons">                                  
-                                    <a href="#" className="img-icons"><FaInstagramSquare size="1.4x"/></a>
+                                    <a href="#" className="img-icons"><FaInstagramSquare size="1.6x"/></a>
                                 </div> 
                                 <div className="icons">                                    
-                                    <a href="#" className="img-icons"><FaWhatsappSquare size="1.4x"/></a>
+                                    <a href="#" className="img-icons"><FaWhatsappSquare size="1.6x"/></a>
                                 </div> 
                                 <div className="icons">                                    
-                                    <a href="#" className="img-icons"><FaYoutube size="1.4x"/></a>
+                                    <a href="#" className="img-icons"><FaYoutube size="1.6x"/></a>
                                 </div> 
                             </div>                            
                             </p>

@@ -39,8 +39,8 @@ import './Carroussel.css';
                   alt="First slide"
                 />
                 <Carousel.Caption>
-                  <h3 className="font-carousel">O Brasil é o 4º país que mais produz lixo <br/> no mundo segundo a WWF</h3>
-                  <p className="font-carousel">https://agenciabrasil.ebc.com.br/internacional/noticia/2019-03/brasil-e-o-4o-pais-que-mais-produz-lixo-no-mundo-diz-wwf</p>
+                  <h3 className="font-carousel">Destinação inadequada de lixo cresce 16% em uma década segundo a Abrelpe.</h3>
+                  <p className="font-carousel">https://abrelpe.org.br/noticias/</p>
                 </Carousel.Caption>
               </Carousel.Item>
 
@@ -51,7 +51,7 @@ import './Carroussel.css';
                   alt="Third slide"
                 />
                 <Carousel.Caption>
-                  <h3 className="font-carousel">Onde muitos vêem lixo, nós enxergamos uma oportunidade de melhorar a qualidade de vida</h3>
+                  <h3 className="font-carousel">Onde muitos vêem lixo, nós enxergamos uma oportunidade de melhorar a qualidade de vida.</h3>
                 </Carousel.Caption>
               </Carousel.Item>
 
@@ -81,10 +81,6 @@ import './Carroussel.css';
           </>
     );
 }
-
-
- 
-
 
 
 export const CarrousselSupporters = () => {

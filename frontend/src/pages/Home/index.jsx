@@ -2,7 +2,7 @@ import React from 'react';
 
 // Components
 import {Carroussel, CarrousselSupporters} from '../../components/Carroussel';
-import About from '../../components/About';
+import {About} from '../../components/About';
 import { BannerConsume, BannerInfo } from '../../components/Banner';
 import CardsReciclo from '../../components/Card';
 
@@ -24,7 +24,7 @@ const Home = () =>{
 
             <div className="row my-4">
                 <div className="col-12">
-                    <About />                
+                    <About />            
                 </div>                
             </div>
 
@@ -34,8 +34,8 @@ const Home = () =>{
                 </div>                
             </div>
 
-            <div className="row my-4">
-                <div className="col-12">
+            <div className="row my-4 mx-auto">
+                <div className="col-12 d-flex justify-content-around">
                     <CardsReciclo />                    
                 </div>
             </div>

@@ -1,0 +1,35 @@
+.txt-information {
+    font-family: 'Nunito', sans-serif;
+    font-size: 1rem;
+    text-align: justify;
+}
+
+.text-blue,
+.text-red,
+.text-green,
+.text-yellow,
+.text-brown {
+    margin-top: 2rem;
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+.text-blue {
+    color: rgb(0, 0, 199);
+}
+
+.text-red {
+    color: rgb(199, 5, 5);
+}
+
+.text-green {
+    color: #24973b;
+}
+
+.text-yellow {
+    color: #F5C504;
+}
+
+.text-brown {
+    color: #664412;
+}

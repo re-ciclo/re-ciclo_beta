@@ -1,4 +1,8 @@
 import React from 'react';
+import {Link, withRouter} from 'react-router-dom';
+
+// Libraries
+import {Nav} from 'react-bootstrap';
 
 //Components
 import Title from '../Title';
@@ -8,16 +12,18 @@ import './About.css';
 import ImgAbout from './img/about.svg';
 
 
-const About = () => {
+function AboutAReciclo(props) {
+
+    const {location} = props;
 
     return (
   
       <>
-        <section>
+        
   
           <Title title="O que faz a Re-ciclo" />             
           
-            <div className="row justify-content-center">
+            <div activeKey={location.pathname} className="row justify-content-center">
 
               <div className="col-10 col-sm-5 mx-auto p-5">
                     <p className="txt-areciclo">
@@ -26,7 +32,9 @@ const About = () => {
                     </p>
                     <p className="txt-areciclo">
                       Além disso, temos um diferencial de proporcionar melhorias em moradias populares através do lixo reciclado. 
-                      Você já pensou em ter um estilo de vida mais sustentável? Se cadastre e venha também fazer parte dessa mudança!
+                      Você já pensou em ter um estilo de vida mais sustentável? 
+                      <Nav.Link className="text-center" as={Link} href="/cadastro" to="/cadastro">Cadastre-se aqui</Nav.Link> 
+                      e venha você também fazer parte dessa mudança!                                         
                     </p>
               </div>
 
@@ -36,9 +44,9 @@ const About = () => {
 
             </div>
           
-        </section>
+        
     </>
   );
 }
 
-export default About;
+export const About = withRouter(AboutAReciclo);

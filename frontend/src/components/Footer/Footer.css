@@ -14,3 +14,11 @@
 .copy {
     font-size: .85rem;
 }
+
+/* Responsive */
+
+@media (max-width: 991px) {
+    .icons {
+        width: 40px;
+    }
+}
