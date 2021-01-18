@@ -17,10 +17,10 @@ import {Carousel} from 'react-bootstrap';
 import Recode from './img/recode.jpg';
 import Itau from './img/itau.jpg';
 import Akatu from './img/akatu.png';
-import Maeda from './img/maeda.png';
+import Maeda from './img/maeda.svg';
 
 // Styles
-import './Carroussel.css';      
+import './Carroussel.css';     
 
 
 

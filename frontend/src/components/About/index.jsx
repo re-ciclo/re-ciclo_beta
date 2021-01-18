@@ -20,12 +20,12 @@ function AboutAReciclo(props) {
   
       <>
         
-  
-          <Title title="O que faz a Re-ciclo" />             
-          
+
+        <Title title="O que faz a Re-ciclo" />
+        <div className="container">    
             <div activeKey={location.pathname} className="row justify-content-center">
 
-              <div className="col-10 col-sm-5 mx-auto p-5">
+              <div className="col-10 col-sm-7 mx-auto p-5 text-about">
                     <p className="txt-areciclo">
                       Somos um grupo que trabalha pela conscientização e mobilização da sociedade para o descarte correto do próprio lixo, 
                       conscientizando a importância de adotar estilos sustentáveis de vida.
@@ -38,13 +38,11 @@ function AboutAReciclo(props) {
                     </p>
               </div>
 
-              <div className="col-10 col-sm-5 m-auto align-middle">
+              <div className="col-10 col-sm-3 d-flex justify-content-center align-middle">
                     <img className="img-about" src={ImgAbout} alt="Imagem de itens para reciclar"/>
               </div>
-
             </div>
-          
-        
+          </div>
     </>
   );
 }

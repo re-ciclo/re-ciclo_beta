@@ -3,3 +3,18 @@
     font-size: clamp(.7rem, .9vh, 2rem);
     text-align: justify;
 }
+
+
+/* Responsive */
+
+@media (max-width: 991px) {
+    .text-about {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .img-about {
+        width: 150px;
+    }
+
+}

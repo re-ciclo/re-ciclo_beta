@@ -58,7 +58,7 @@ export function Login() {
                 console.log(formData);
                 
 
-                const url = "http://localhost/Recode%20Pro/ProjetoSqua07Entrega2/re-ciclo/backend/ReceiveData/getLogin.php";
+                const url = "http://localhost/re-ciclo/backend/ReceiveData/getLogin.php";
 
 
               fetch(url,{
@@ -287,7 +287,7 @@ export const ModalEditar = (props) =>{
         
         if(nome.length >= 3 && email.length >= 3 && telefone.length >= 3 && cep.length >= 3 && logradouro.length >= 3 && numero.length >= 1){
 
-          const urlCadastro = "http://localhost/Recode%20Pro/ProjetoSqua07Entrega2/re-ciclo/backend/ReceiveData/crudUsuarioCadastroUpdate.php";
+          const urlCadastro = "http://localhost/re-ciclo/backend/ReceiveData/crudUsuarioCadastroUpdate.php";
                       
           const formData = new FormData(document.getElementById("form"));
           console.log(formData);
@@ -309,7 +309,7 @@ export const ModalEditar = (props) =>{
 
 
 
-         const urlEndereco = "http://localhost/Recode%20Pro/ProjetoSqua07Entrega2/re-ciclo/backend/ReceiveData/crudUsuarioEnderecoUpdate.php";
+         const urlEndereco = "http://localhost/re-ciclo/backend/ReceiveData/crudUsuarioEnderecoUpdate.php";
           
          fetch(urlEndereco,{
 
@@ -446,7 +446,7 @@ export const ModalExcluir = (props) =>{
       const formData = new FormData(document.getElementById("form"));
      
      
-      const urlEndereco = "http://localhost/Recode%20Pro/ProjetoSqua07Entrega2/re-ciclo/backend/ReceiveData/crudUsuarioEnderecoDelete.php";
+      const urlEndereco = "http://localhost/re-ciclo/backend/ReceiveData/crudUsuarioEnderecoDelete.php";
 
       fetch(urlEndereco,{
 
@@ -463,7 +463,7 @@ export const ModalExcluir = (props) =>{
 
 
 
-        const urlCadastro = "http://localhost/Recode%20Pro/ProjetoSqua07Entrega2/re-ciclo/backend/ReceiveData/crudUsuarioCadastroDelete.php";
+        const urlCadastro = "http://localhost/re-ciclo/backend/ReceiveData/crudUsuarioCadastroDelete.php";
 
       fetch(urlCadastro,{
 
@@ -576,7 +576,7 @@ export const ModalCadastrar = () =>{
         if(formData.get("senha") === formData.get("confirme_senha")){
 
                      
-        const url = "http://localhost/Recode%20Pro/ProjetoSqua07Entrega2/re-ciclo/backend/ReceiveData/getCadastro.php";
+        const url = "http://localhost/re-ciclo/backend/ReceiveData/getCadastro.php";
 
         fetch(url,{
             
