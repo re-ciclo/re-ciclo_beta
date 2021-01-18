@@ -22,7 +22,24 @@ class Usuario
         $stmt = $connection->query("SELECT * FROM usuario");
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
         
+    } 
+
+
+    public  function getDadosEditaveis()
+    {
+        $connection = Connection::getDb();
+
+        $stmt = $connection->query("SELECT 
+        usuario.id_usuario, usuario.nome, usuario.email, usuario.telefone, 
+        endereco.cep, endereco.logradouro, endereco.complemento, endereco.numero
+        FROM usuario INNER JOIN endereco
+        ON usuario.id_usuario = endereco.id_usuario");
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        
     }
+
+
 
 
     public function registerUsuario()
@@ -57,11 +74,53 @@ class Usuario
     public function updateUsuario()
     {
         $connection = Connection::getDb();
+        // Eita '-' I know
 
-        $connection->query("UPDATE usuario
-        SET nome = '$this->nome', email = '$this->email', telefone = '$this->telefone', senha = '$this->senha'
-        WHERE id_usuario = '$this->id_usuario'");
+        $a = $this->nome;
+        $b = $this->email;
+        $c = $this->telefone;
+        $d = $this->id_usuario;
+
+        $stmt4 = $connection->query("UPDATE usuario
+        SET nome = '$a', email = '$b', telefone = '$c' 
+        WHERE id_usuario = '$d'");
+
+        // echo '..';
+        // echo $this->nome, $this->id_usuario;
+
+        if ($stmt4->rowCount() > 0) {
+
+            return true;
+            
+        } else {
+            
+            return false;
+        }
+
+
     }
+
+
+    public function deleteUsuario()
+    {
+        $connection = Connection::getDb();
+
+
+        $stmt = $connection->query("DELETE FROM usuario WHERE id_usuario = '$this->id_usuario'");
+        
+        if ($stmt->rowCount() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
+
+
+
+
+
 
 
     public function loginUsuario(){
@@ -70,16 +129,44 @@ class Usuario
 
         $stmt = $connection->query("SELECT * FROM usuario WHERE email = '$this->email' and senha = '$this->senha'");
         
-        
-        
-        if ($stmt->rowCount() > 0) {
+        if($stmt->rowCount() > 0){
+            $ajuste = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $id = $ajuste[0]['id_usuario'];
+       
+       
+            $stmt2 = $connection->query("SELECT 
+            usuario.id_usuario, usuario.nome, usuario.email, usuario.telefone, usuario.nivel_acesso, 
+            endereco.cep, endereco.logradouro, endereco.complemento, endereco.numero
+            FROM usuario INNER JOIN endereco
+            ON usuario.id_usuario = endereco.id_usuario
+            WHERE usuario.id_usuario = $id");
 
-            return $stmt->fetchAll(PDO::FETCH_ASSOC);
-            
-        } else {
-            
+            // return $stmt2->fetchAll(PDO::FETCH_ASSOC);
+
+            // [0]['nome']
+
+            if ($stmt2->rowCount() > 0) {
+
+                return $stmt2->fetchAll(PDO::FETCH_ASSOC);
+                
+            } else {
+                
+                return false;
+            }
+
+        }else{
+
             return false;
+
         }
+        
+
+        
+
+        
+
+
+        
 
     }
 

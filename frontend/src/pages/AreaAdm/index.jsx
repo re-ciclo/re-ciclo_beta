@@ -1,9 +1,11 @@
 import React from 'react';
 
+
 //Components
 import {SidebarAdm} from '../../components/Sidebar';
 import Title from '../../components/Title';
-
+import { JumbotronAmbiente } from '../../components/Jumbotron';
+import Magazine from '../../components/Magazine';
 
 
 
@@ -13,27 +15,40 @@ const AreaAdm = () => {
 
     const verifica = localStorage.getItem('@frontend/nivel_acesso');
 
+    const nome = localStorage.getItem('@frontend/nome');
+
 
 
     if(verifica==1){
     
             return (
-                <div className="container-fluid">
+                <div className="container-fluid" >
 
                         <Title title='Área do Administrador' />            
 
+                   
                     <div className="row" >
-                        <div className="col-12 col-sm-3 d-flex justify-content-center">
-                            <SidebarAdm /> 
+                        <div className="col-12 col-sm-2 d-flex justify-content-center"> 
+                            <div className="ml-2 w-100">
+                                <SidebarAdm />
+                            </div>
                         </div>  
                         
-                        <div className="col-12 col-sm-6">
-                            Area do Adm
+                        <div className="col-12 col-sm-10" >
+                            <Magazine nome={nome}/>
+                            <br/><br/><br/><br/><br/><br/><br/><br/>
+                            <br/><br/><br/><br/><br/><br/><br/><br/>
+                            <br/><br/><br/><br/><br/><br/><br/><br/>
+                            <br/><br/><br/><br/><br/><br/><br/><br/>
+                            <br/><br/><br/><br/><br/><br/><br/><br/>
+                            <br/><br/><br/><br/><br/><br/><br/><br/>
+                            
+                            {/* <JumbotronAmbiente jumboNome={nome}/> */}
                         </div>
-                        <div className="col-12 col-sm-3">
-                            Imagem
-                        </div>  
+                        
                     </div>
+
+
                 </div>
             );
         }else{

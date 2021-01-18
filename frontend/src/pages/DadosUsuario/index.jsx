@@ -18,11 +18,11 @@ const DadosUsuario = () =>{
                     <Title title='Dados do Usuário' />            
 
                 <div className="row" >
-                    <div className="col-12 col-sm-3 d-flex justify-content-center">
+                    <div className="col-12 col-sm-2 d-flex justify-content-center">
                         <Sidebar /> 
                     </div>  
                     
-                    <div className="col-12 col-sm-6">
+                    <div className="col-12 col-sm-7">
                         Dados do usuario
                     </div>
                     <div className="col-12 col-sm-3">

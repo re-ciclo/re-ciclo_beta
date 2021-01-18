@@ -17,16 +17,16 @@ const AreaAdmResultados = () => {
                     <Title title='Administrador - Painel de Resultados' />            
 
                 <div className="row" >
-                    <div className="col-12 col-sm-3 d-flex justify-content-center">
-                        <SidebarAdm /> 
+                    <div className="col-12 col-sm-2 d-flex justify-content-center">
+                        <div className="ml-2 w-100">
+                            <SidebarAdm /> 
+                        </div>  
                     </div>  
-                    
-                    <div className="col-12 col-sm-6">
-                        Area do Adm - Resultados
+
+                    <div className="col-12 col-sm-10">
+                        <br/><br/><br/><br/><br/><br/><br/><br/>
+                        <br/><br/><br/><br/><br/><br/><br/><br/>
                     </div>
-                    <div className="col-12 col-sm-3">
-                        Imagem
-                    </div>  
                 </div>
             </div>
         );
