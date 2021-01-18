@@ -1,6 +1,6 @@
 CREATE DATABASE reciclo;
 USE reciclo;
-DROP database reciclo;
+DROP DATABASE reciclo;
 
 CREATE TABLE usuario
 (
@@ -14,9 +14,12 @@ UNIQUE (email),
 data datetime DEFAULT CURRENT_TIMESTAMP NOT NULL
 );
 
-SELECT * FROM usuario;
+
+
 INSERT INTO usuario
-(nome, email, telefone, senha) VALUES 
+(nome, email, telefone, senha) VALUES
+('Sr Adm', 'aaaa@aaaa.com', '33333333', '11111'),
+('FulanoA', 'fulanoa@gmail.com', '44444444', '11111'),
 ('Alex', 'alex@gmail.com', '33333333', '11111'),
 ('Pablo', 'pablo@gmail.com', '44444444', '11111'),
 ('Willyan', 'will@gmail.com', '55555555', '11111');
@@ -38,19 +41,16 @@ FOREIGN KEY (id_usuario)  REFERENCES  usuario (id_usuario)
 );
 
 
-drop table usuario;
-
-INSERT INTO endereco (id_endereco, id_usuario, cep, logradouro, complemento, bairro, localidade, uf, numero) VALUES
-(null, 1,'05000-010','logradouro A','complemento A', 'bairro A', 'localidade A', 'uf A','10'),
-(2,'05000-020','logradouro P','complemento P', 'bairro P', 'localidade P', 'uf P','20');
+INSERT INTO endereco (id_usuario, cep, logradouro, complemento, bairro, localidade, uf, numero) VALUES
+(1,'05000-010','logradouro A','Bloco A', 'Bairro A', 'Localidade A', 'SP','10'),
+(2,'05000-020','logradouro B','Bloco B', 'Bairro B', 'Localidade P', 'SP','20'),
+(3,'05000-020','logradouro C','Bloco C', 'Bairro C', 'Localidade P', 'SP','30'),
+(4,'05000-020','logradouro D','Bloco D', 'Bairro D', 'Localidade P', 'SP','40'),
+(5,'05000-020','logradouro E','Bloco E', 'Bairro E', 'Localidade P', 'SP','50');
 
 
 SELECT * FROM usuario;
 SELECT * FROM endereco;
-
--- Lógica para criar um tipo de auto incremento no id_usuario que está em endereco
-SELECT count(id_usuario)+1 FROM endereco;
-
 
 
 CREATE TABLE material
@@ -59,7 +59,6 @@ id_material INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 nome varchar(80) NOT null,
 preco_kg decimal(8,2),
 data datetime DEFAULT CURRENT_TIMESTAMP not null
-
 );
 
 INSERT INTO `material` (`nome`, `preco_kg`, `data`) VALUES
@@ -83,7 +82,7 @@ FOREIGN KEY (id_material)  REFERENCES  material (id_material)
 );
 
 SELECT * FROM reciclado;
-truncate reciclado;
+
 
 -- drop table reciclado;
 
@@ -137,6 +136,23 @@ INSERT INTO mensagem (assunto, nome, email, telefone) VALUES
 ('sugestoes','fulanoC','fulanoC@email.com','5555-5555');
 
 
+SELECT * FROM usuario ;
+SELECT * FROM endereco ;
+
+
+SELECT * FROM usuario;
+
+
+
+-- Lógicas
+
+-- Nível acesso
+
+Update usuario set nivel_acesso = 1 WHERE id_usuario = 1;
+
+-- criar um tipo de auto incremento no id_usuario que está em endereco
+SELECT count(id_usuario)+1 FROM endereco;
+
 
 -- Verifica se há e-mail repetido
 SELECT * FROM usuario WHERE email = "alex@gmail.com";
@@ -145,8 +161,23 @@ SELECT * FROM usuario WHERE email = "alex@gmail.com";
 SELECT * FROM usuario WHERE email = "alex@gmail.com" and senha = "11111";
 
 
-SELECT * FROM usuario;
-Update usuario set email = 'aaaa@aaaa.com' WHERE id_usuario = 8;
+
+
+
+UPDATE usuario
+        SET nome = 'novo_nomex', email = 'novo_email', telefone = 'novo_telefone'
+        WHERE id_usuario = '4';
+        
+UPDATE endereco
+        SET cep = 'novo_cepz', logradouro = 'novo_logradouro', complemento = 'novo_complemento', numero = 1
+        WHERE id_usuario = 4;
+        
+SELECT 
+usuario.id_usuario, usuario.nome, usuario.email, usuario.telefone, usuario.nivel_acesso,
+endereco.cep, endereco.logradouro, endereco.complemento, endereco.numero
+FROM usuario INNER JOIN endereco
+ON usuario.id_usuario = endereco.id_usuario
+WHERE usuario.id_usuario = 1;
 
 
 

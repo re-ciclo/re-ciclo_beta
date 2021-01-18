@@ -14,11 +14,11 @@ export const FormRegister = () =>{
 
     // Dados Usuario - Pessoal
 
-    // let [ nome, setNome] = React.useState("");
-    // let [ email, setEmail] = React.useState("");
-    // let [ telefone, setTelefone] = React.useState("");
-    // let [ senha, setSenha] = React.useState("");
-    // let [ senhaConfirme, setSenhaConfirme] = React.useState("");
+    let [ nome, setNome] = React.useState("");
+    let [ email, setEmail] = React.useState("");
+    let [ telefone, setTelefone] = React.useState("");
+    let [ senha, setSenha] = React.useState("");
+    let [ senhaConfirme, setSenhaConfirme] = React.useState("");
 
 
     // // Dados Usuario - Endereco
@@ -30,6 +30,7 @@ export const FormRegister = () =>{
     let [ localidade, setLocalidade] = React.useState("");
     let [ uf, setUf] = React.useState("");
     let [ numero, setNumero] = React.useState("");
+    let [ checar, setChecar] = React.useState(false);
 
 
     // Mensagem de Confirmação de Cadastro
@@ -89,10 +90,28 @@ export const FormRegister = () =>{
         })
         .then((response) => response.json())
         .then((dadosValidados) =>{
+            console.log(dadosValidados);
             if(dadosValidados == true){
                 console.log(dadosValidados);
+
+                setNome(nome="");
+                setEmail(email="");
+                setTelefone(telefone="");
+                setSenha(senha="");
+                setSenhaConfirme(senhaConfirme="");
+                setCep(cep="");
+                setLogradouro(logradouro="");
+                setComplemento(complemento="");
+                setBairro(bairro="");
+                setLocalidade(localidade="");
+                setUf(uf="");
+                setNumero(numero="");
+                setChecar(checar=false);
+                
+
                 setMensagem(true);
-                setTimeout( () => { setMensagem(false) },3000)
+                setTimeout( () => { setMensagem(false); window.location.assign("http://localhost:3000/ambientelogin") },3000)
+                
             }else{
                 console.log(dadosValidados);
                 setMensagemEmail(true);
@@ -114,18 +133,18 @@ export const FormRegister = () =>{
 
     return(
         <>
-            <Form onSubmit={cadastro}>
+            <Form onSubmit={cadastro} id="form">
                 <FormGroup row>
                     <Label for="nome" sm={3}>Nome</Label>
                     <Col sm={9}>
-                    <Input type="text" name="nome" id="nome" minLength="3" maxLength="50" placeholder="Digite seu nome completo" required/>
+                    <Input type="text" name="nome" id="nome" minLength="3" maxLength="50" placeholder="Digite seu nome completo" value={nome} onChange={(event) => setNome(event.target.value)} required/>
                     </Col>
                 </FormGroup>
 
                 <FormGroup row>
                     <Label for="email" sm={3}>Email</Label>
                     <Col sm={9}>
-                    <Input type="email" name="email" minLength="10" maxLength="50" id="email" placeholder="Digite seu e-mail" required/>
+                    <Input type="email" name="email" minLength="10" maxLength="50" id="email" placeholder="Digite seu e-mail" value={email} onChange={(event) => setEmail(event.target.value)} required/>
                     
                     </Col>
                 </FormGroup>
@@ -133,28 +152,28 @@ export const FormRegister = () =>{
                 <FormGroup row>
                     <Label for="telefone" sm={3}>Telefone</Label>
                     <Col sm={9}>
-                    <Input type="tel" name="telefone" minLength="10" maxLength="11" id="telefone" placeholder="Digite seu celular com DDD  Ex: 11999995555" required/>
+                    <Input type="tel" name="telefone" minLength="10" maxLength="11" id="telefone" placeholder="Digite seu celular com DDD  Ex: 11999995555" value={telefone} onChange={(event) => setTelefone(event.target.value)} required/>
                     </Col>
                 </FormGroup>
 
                 <FormGroup row>
                     <Label for="senha" sm={3}>Senha</Label>
                     <Col sm={9}>
-                    <Input type="password" minLength="3" maxLength="50" name="senha" id="senha" placeholder="Cadastre uma senha" required/>
+                    <Input type="password" minLength="3" maxLength="50" name="senha" id="senha" placeholder="Cadastre uma senha" value={senha} onChange={(event) => setSenha(event.target.value)} required/>
                     </Col>
                 </FormGroup>
 
                 <FormGroup row>
                     <Label for="confirme_senha" sm={3}>Confirmar Senha</Label>
                     <Col sm={9}>
-                    <Input type="password" minLength="3" maxLength="50" name="confirme_senha" id="confirme_senha" placeholder="Confirme sua senha" required/>
+                    <Input type="password" minLength="3" maxLength="50" name="confirme_senha" id="confirme_senha" placeholder="Confirme sua senha" value={senhaConfirme} onChange={(event) => setSenhaConfirme(event.target.value)} required/>
                     </Col>
                 </FormGroup>
 
                 <FormGroup row>
                     <Label for="cep" sm={3}>CEP</Label>
                     <Col sm={3}>
-                    <Input type="text" name="cep" minLength="8" maxLength="8" id="cep" placeholder="00000-000" onMouseMove={getCep} onChange={(event) => setCep(event.target.value)} required/>
+                    <Input type="text" name="cep" minLength="8" maxLength="8" id="cep" placeholder="00000-000" onMouseMove={getCep} value={cep} onChange={(event) => setCep(event.target.value)} required/>
                     </Col>
 
                     <Label for="logradouro" sm={2}>Logradouro</Label>
@@ -196,7 +215,7 @@ export const FormRegister = () =>{
 
                 <FormGroup check className="mt-4">
                     <Label check>
-                        <Input type="checkbox" name="check" id="check" required />{' '}
+                        <Input type="checkbox" name="check" id="check" value={checar} required />{' '}
                         Criando sua conta você concorda com nossos <span className="link"><Termos/></span> e nossa <span className="link"><Politica/></span>
                     </Label>
                 </FormGroup>
@@ -304,7 +323,7 @@ export const FormLogin = () =>{
                 })
                 .then((response) => response.json())
                 .then((dadosValidados) =>{
-                    if(dadosValidados[0]['id_usuario'] > 0){
+                    if(dadosValidados[0]['id_usuario'] > 0){ // Não há id negativo no BD
                         console.log(dadosValidados);
                         
                         localStorage.setItem('@frontend/id_usuario', dadosValidados[0]['id_usuario']);
@@ -312,6 +331,12 @@ export const FormLogin = () =>{
                         localStorage.setItem('@frontend/email', dadosValidados[0]['email']);
                         localStorage.setItem('@frontend/telefone', dadosValidados[0]['telefone']);
                         localStorage.setItem('@frontend/nivel_acesso', dadosValidados[0]['nivel_acesso']);
+
+                        localStorage.setItem('@frontend/cep', dadosValidados[0]['cep']);
+                        localStorage.setItem('@frontend/logradouro', dadosValidados[0]['logradouro']);
+                        localStorage.setItem('@frontend/complemento', dadosValidados[0]['complemento']);
+                        localStorage.setItem('@frontend/numero', dadosValidados[0]['numero']);
+
 
 
                         if(localStorage.getItem('@frontend/nivel_acesso') == 1){

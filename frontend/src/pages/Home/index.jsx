@@ -4,7 +4,7 @@ import React from 'react';
 import {Carroussel, CarrousselSupporters} from '../../components/Carroussel';
 import {About} from '../../components/About';
 import { BannerConsume, BannerInfo } from '../../components/Banner';
-import CardsReciclo from '../../components/Card';
+import {CardsReciclo} from '../../components/Card';
 
 // Styles
 import './Home.css';

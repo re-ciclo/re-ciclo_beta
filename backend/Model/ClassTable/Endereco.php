@@ -36,19 +36,16 @@ class Endereco
         
         $this->id_usuario = $dados[0]["count(id_usuario)+1"];
 
-              
+        $id =  $this->id_usuario;
 
         
          $stmt2 = $connection->query("INSERT INTO endereco
          (id_usuario, cep, logradouro, complemento, bairro , localidade, uf, numero) VALUES
-         ('$this->id_usuario','$this->cep','$this->logradouro','$this->complemento', '$this->bairro', '$this->localidade', '$this->uf','$this->numero')");
+         ('$id','$this->cep','$this->logradouro','$this->complemento', '$this->bairro', '$this->localidade', '$this->uf','$this->numero')");
         
 
         // echo $this->id_usuario;
       
-        
-
-
 
         //Verifica quantas linhas foram afetadas 
             if ($stmt2->rowCount() > 0) {
@@ -58,5 +55,45 @@ class Endereco
             }
 
     }
+
+
+    public function updateEndereco()
+    {
+        $connection = Connection::getDb();
+
+        $stmt = $connection->query("UPDATE endereco
+        SET cep = '$this->cep', logradouro = '$this->logradouro', complemento = '$this->complemento', numero = '$this->numero'
+        WHERE id_usuario = '$this->id_usuario'");
+        
+        if ($stmt->rowCount() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+           
+         
+    }
+
+
+    public function deleteEndereco()
+    {
+        $connection = Connection::getDb();
+
+
+        $stmt = $connection->query("DELETE FROM endereco WHERE id_usuario = '$this->id_usuario'");
+        
+        if ($stmt->rowCount() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
+
+
+
+
+
 }
 

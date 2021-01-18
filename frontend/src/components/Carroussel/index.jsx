@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Title from '../Title';
 
 //Images - Carrossel
-import Imagem01 from './img/img-1.png';
+import Imagem01 from './img/img-1.jpeg';
 import Imagem02 from './img/img-3.png';
 import Imagem03 from './img/img-2.png';
 import Imagem04 from './img/img-4.png';

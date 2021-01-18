@@ -2,15 +2,20 @@ import React from 'react';
 import {Link} from 'react-router-dom'; 
 
 //Libraries
+
 import { MDBCard, MDBCardTitle, MDBBtn, MDBRow, MDBCol, MDBIcon} from 'mdbreact';
 import {Nav} from 'react-bootstrap';
+
+import { Card, CardGroup,  Button, Nav } from 'react-bootstrap';
 
 //styles
 import './Card.css';
 
-function CardsReciclo() {    
 
-    return(
+export const CardsReciclo = () => {
+
+
+    return (
         <>
             <MDBRow className="my-5">
                 <MDBCol md='4'>
@@ -37,7 +42,6 @@ function CardsReciclo() {
                     </div>
                     </MDBCard>
                 </MDBCol>
-
                 <MDBCol md='4'>
                     <MDBCard
                     className='card-image'
@@ -62,7 +66,6 @@ function CardsReciclo() {
                     </div>
                     </MDBCard>
                 </MDBCol>
-
                 <MDBCol md='4'>
                     <MDBCard
                     className='card-image'
@@ -88,5 +91,58 @@ function CardsReciclo() {
         </>
     );
 }
+        
+        
+export const CardsAmbiente = (props) => {
 
-export default CardsReciclo;
+    return (
+        <>
+            <div className="container d-fex justify-content-around">
+
+                <CardGroup className="">
+                    <Card className="mx-5 shadow">
+                        
+                        <Card.Body>
+                            <Card.Title><h4><b>Dados Pessoais</b></h4></Card.Title>
+                            <Card.Text>
+                                <p>Nome:{props.nome}</p>
+                                <p>E-mail:{props.email}</p>
+                                <p>Telefone:{props.telefone}</p>
+                               
+                         </Card.Text>
+                        </Card.Body>
+                        <Button variant="primary">Editar</Button>
+                            
+                       
+                    </Card>
+                    
+                    <Card className="shadow">
+                        
+                        <Card.Body>
+                            <Card.Title><h4><b>Endereço</b></h4></Card.Title>
+                            <Card.Text>
+                                <p>Cep:{props.cep}</p>
+                                <p>Logradouro:{props.logradouro}</p>
+                                <p>Complemento:{props.complemento}</p>
+                                <p>Nº:{props.numero}</p>
+                     </Card.Text>
+                        </Card.Body>
+                        
+                        <Button variant="primary">Editar</Button>    
+                       
+                    </Card>
+                </CardGroup>
+
+                
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+            </div>
+        </>
+    );
+}

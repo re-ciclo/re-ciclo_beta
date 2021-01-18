@@ -3,7 +3,7 @@ import {Link, withRouter} from 'react-router-dom';
 
 //Libraries
 import {Nav} from 'react-bootstrap';
-
+import './Sidebar.css';
 function SidebarUsuario (props) {
 
     const {location} = props;
@@ -23,13 +23,13 @@ function SidebarUsuario (props) {
                 <Nav activeKey={location.pathname} className="w-75 d-flex justify-content-around list-group" id="minhaLista" role="tablist">
                     <Nav.Item className="list-group-item list-group-item-action" data-toggle="list">
                         <Nav.Link as={Link} to= "areausuario" role="tab">
-                            Área Principal
+                            Principal
                         </Nav.Link>
                     </Nav.Item>
 
                     <Nav.Item className="list-group-item list-group-item-action" data-toggle="list">
                         <Nav.Link as={Link} to= "areausuarioresultados" role="tab">
-                            Painel de Resultados
+                            Resultados
                         </Nav.Link>
                     </Nav.Item>
 
@@ -65,16 +65,16 @@ function SidebarAdministrador (props) {
     return(
         <>           
                            
-                <Nav activeKey={location.pathname} className="w-75 d-flex justify-content-around list-group" id="minhaLista" role="tablist">
+                <Nav activeKey={location.pathname} className=" ajuste w-20 ml-2 d-flex justify-content-around list-group " id="minhaLista" role="tablist">
                     <Nav.Item className="list-group-item list-group-item-action" data-toggle="list">
                         <Nav.Link as={Link} to= "areaadm" role="tab">
-                            Área Principal
+                            Principal
                         </Nav.Link>
                     </Nav.Item>
 
                     <Nav.Item className="list-group-item list-group-item-action" data-toggle="list">
                         <Nav.Link as={Link} to= "areaadmresultados" role="tab">
-                            Painel de Resultados
+                            Resultados
                         </Nav.Link>
                     </Nav.Item>
 
@@ -103,3 +103,7 @@ function SidebarAdministrador (props) {
 }
 
 export const SidebarAdm = withRouter(SidebarAdministrador);
+
+
+
+
