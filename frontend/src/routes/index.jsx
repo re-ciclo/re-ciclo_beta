@@ -9,7 +9,7 @@ import Home from '../pages/Home';
 import AReciclo from '../pages/AReciclo';
 import Projeto from '../pages/Projeto';
 import Contato from '../pages/Contato';
-
+import Information from '../pages/Information';
 
 // Menu Acesso
 import Cadastro from '../pages/Cadastro';
@@ -37,36 +37,25 @@ const Routes = () =>{
                 <Route path="/areciclo" exact component={AReciclo} />
                 <Route path="/projeto" exact component={Projeto} />
                 <Route path="/contato" exact component={Contato} />
-
+                <Route path="/information" exact component={Information} />
 
                 {/* Menu Acesso*/}
                 <Route path="/cadastro" exact component={Cadastro} />
-                
-
-
-
                 <Route path="/ambientelogin" exact component={AmbienteLogin} />
                 
-                 {/* Fora do Menu User */}
-                 
+                 {/* Fora do Menu User */}                 
                 <Route path="/areausuario" exact component={AreaUsuario} />
                 <Route path="/dadosusuario" exact component={DadosUsuario} />
                 <Route path="/areausuarioresultados" exact component={AreaUsuarioResultados} />
-
-
 
                 {/* Fora do Menu Adm */}
                 <Route path="/areaadm" exact component={AreaAdm} />
                 <Route path="/areaadmresultados" exact component={AreaAdmResultados} />
                 <Route path="/dadosadm" exact component={DadosAdm} />
                 <Route path="/areaadmcrud" exact component={AreaAdmCRUD} />
-
-                
-                
             </Switch>
         </>
     );
 }
-
 
 export default Routes;

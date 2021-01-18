@@ -19,13 +19,15 @@
 .text-banner-1 p {
     margin-top: 5.5rem;
     font-size: clamp(1rem, 2.1vw, 2rem);
+    font-weight: bold;
     color: white;
     text-shadow: 1px 1px 2px black;
 }
 
 .title-banner-2 {
     margin-top: 4rem;
-    font-size: clamp(1.1rem, 2.2vw, 1.8rem);
+    font-size: clamp(1.1rem, 2.3vw, 1.8rem);
+    font-weight: bold;
     color: white;
     text-shadow: 1px 1px 2px black;
     text-align: center;
@@ -33,7 +35,8 @@
 
 .text-banner-2 {
     margin-top: 4rem;
-    font-size: clamp(1rem, 1.8vw, 1.6rem);
+    font-size: clamp(1rem, 1.7vw, 1.6rem);
+    font-weight: bold;
     color: white;
     text-shadow: 1px 1px 2px black;
     text-align: justify;
@@ -58,5 +61,12 @@
 
     .text-banner-2 {
         margin: .5rem;
+    }
+}
+
+@media (max-width: 990px) {
+    .banner1,
+    .banner2 {
+        height: 60vh;
     }
 }

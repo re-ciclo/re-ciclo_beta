@@ -3,3 +3,9 @@
     font-size: 1.2rem;
     text-align: justify;
 }
+
+.img-areciclo {
+    height: 140px;
+    width: 200px;
+    border-radius: 8%;
+}

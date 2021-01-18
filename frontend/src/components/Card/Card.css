@@ -1,16 +1,18 @@
-.card-img {
-    height: 70%;
-    width: 90%;
+.card-image {
+    background-repeat: round;
+}
+
+.card-size {
+    width: 20rem;
+    height: 100%;
+    margin: 0 2rem;
 }
 
 
 /* Responsive */
 
-@media (max-width: 415px) {
-    .card {
-        height: initial;
-    }
-
+@media (max-width: 415px) { 
+    
     .card-body {
         padding: 0 !important;
     }

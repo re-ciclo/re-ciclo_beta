@@ -1,7 +1,9 @@
 import React from 'react';
+import {Link, withRouter} from 'react-router-dom';
 
 // Libraries
 import {Card, Button} from 'react-bootstrap';
+import {Nav} from 'react-bootstrap';
 
 //styles
 import './Banner.css';
@@ -25,7 +27,11 @@ export const BannerConsume = () =>{
                             </Card.Text>
 
                             <Card.Link href="#" className="d-flex justify-content-center">
-                                <Button className="btn-info">Saiba mais</Button>
+                                <Button className="btn-light btn-sm">
+                                    <Nav.Link as={Link} href="/information" to="/information">
+                                        Saiba mais
+                                    </Nav.Link>
+                                </Button>
                             </Card.Link>                            
                         </Card.Body>
                         </Card>
