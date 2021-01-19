@@ -1,57 +1,12 @@
-import React, { useState } from 'react';
-
-//Libraries 
-import { Chart } from "react-google-charts";
+import React from 'react';
 
 //Components
 import {Sidebar} from '../../components/Sidebar';
+import Title from '../../components/Title';
 
 import { BarChartSemanas, LineChartCondominoPais, RoscaChart, RadarChart } from '../../components/Charts';
 
-function AreaUsuarioResultados() {
-
-    const [options, setOptions] = useState({
-      /* title: 'Gráfico de Pizza' */
-    });       
-    
-    const [data, setData] = useState([
-      ['Materiais', 'QtdVezesReciclado'],
-      ['Papel', 80],
-      ['Vidro', 160],
-      ['Alumínio', 350],
-    ]);    
-
-
-    return (
-        <div className="container-fluid">  
-
-                <div className="row">
-                    <div className="col-12 col-sm-4 mx-auto mt-3 d-flex justify-content-center btn-user">                    
-
-                        <button type="button" className="btn btn-lg font-user">
-                            Resultados
-                        </button>
-                    </div>
-                </div>                           
-
-                <div className="row" > 
-                    <div className="col-12 col-sm-3 d-flex justify-content-center"> 
-                            <Sidebar/>                            
-                    </div>
-                    <div className="col-12 col-sm-6 pt-1">
-                        
-                    </div>
-                     
-                </div>
-            </div>
-    );
-  }
-  
-  export default AreaUsuarioResultados;
-
-
-
-/* const AreaUsuarioResultados = () =>{
+const AreaUsuarioResultados = () =>{
     const verifica = localStorage.getItem('@frontend/nivel_acesso');
 
     
@@ -69,7 +24,7 @@ function AreaUsuarioResultados() {
     const[todos, setTodos] = React.useState(true);
 	React.useEffect( async () =>{
         console.log("Trouxe os dados");
-        const url = "http://localhost/Recode%20Pro/ProjetoSqua07Entrega2/re-ciclo/backend/SendData/jsonReciclados.php";
+        const url = "http://localhost/re-ciclo/backend/SendData/jsonReciclados.php";
         const response = await fetch(url);
         setDados(await response.json());
     },[todos])
@@ -174,4 +129,4 @@ function AreaUsuarioResultados() {
 }
 
 
-export default AreaUsuarioResultados; */
+export default AreaUsuarioResultados;
