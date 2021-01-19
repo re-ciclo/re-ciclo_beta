@@ -4,6 +4,10 @@ import {Link} from 'react-router-dom';
 //Libraries
 
 import { MDBCard, MDBCardTitle, MDBBtn, MDBRow, MDBCol, MDBIcon} from 'mdbreact';
+<<<<<<< HEAD
+
+=======
+>>>>>>> 31b14f2f9f603125ee7efbafbae4ac88718abccc
 
 
 import { Nav, Card, CardGroup,  Button } from 'react-bootstrap';
