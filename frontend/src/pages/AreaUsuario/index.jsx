@@ -3,7 +3,7 @@ import React from 'react';
 //Components
 import {Sidebar} from '../../components/Sidebar';
 import Title from '../../components/Title';
-import { JumbotronAmbiente } from '../../components/Jumbotron';
+import Magazine from '../../components/Magazine';
 
 const AreaUsuario = () => {
 
@@ -14,22 +14,33 @@ const AreaUsuario = () => {
     if(verifica==0){
 
         return (
-            <div className="container-fluid">
+            <div className="container-fluid" >
 
                     <Title title='Área do Usuário' />            
 
+               
                 <div className="row" >
                     <div className="col-12 col-sm-2 d-flex justify-content-center"> 
-                            <Sidebar/> 
+                        <div className="ml-2 w-100">
+                            <Sidebar/>
+                        </div>
                     </div>  
                     
-                    <div className="col-12 col-sm-7">
-                        <JumbotronAmbiente jumboNome={nome}/>
+                    <div className="col-12 col-sm-10" >
+                        <Magazine nome={nome}/>
+                        <br/><br/><br/><br/><br/><br/><br/><br/>
+                        <br/><br/><br/><br/><br/><br/><br/><br/>
+                        <br/><br/><br/><br/><br/><br/><br/><br/>
+                        <br/><br/><br/><br/><br/><br/><br/><br/>
+                        <br/><br/><br/><br/><br/><br/><br/><br/>
+                        {/* <br/><br/><br/><br/><br/><br/><br/><br/> */}
+                        
+                        {/* <JumbotronAmbiente jumboNome={nome}/> */}
                     </div>
-                    <div className="col-12 col-sm-3">
-                        Imagem
-                    </div>  
+                    
                 </div>
+
+
             </div>
         );
     }else{

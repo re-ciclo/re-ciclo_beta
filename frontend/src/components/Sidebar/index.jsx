@@ -20,7 +20,7 @@ function SidebarUsuario (props) {
     return(
         <>           
                            
-                <Nav activeKey={location.pathname} className="w-75 d-flex justify-content-around list-group" id="minhaLista" role="tablist">
+                <Nav activeKey={location.pathname} className="ajuste w-20 ml-2 d-flex justify-content-around list-group shadow" id="minhaLista" role="tablist">
                     <Nav.Item className="list-group-item list-group-item-action" data-toggle="list">
                         <Nav.Link as={Link} to= "areausuario" role="tab">
                             Principal
@@ -64,8 +64,8 @@ function SidebarAdministrador (props) {
 
     return(
         <>           
-                           
-                <Nav activeKey={location.pathname} className=" ajuste w-20 ml-2 d-flex justify-content-around list-group " id="minhaLista" role="tablist">
+            
+                <Nav activeKey={location.pathname} className=" aa ajuste w-20 h-1 mb-5 ml-2 d-flex justify-content-around list-group shadow" id="minhaLista" role="tablist">
                     <Nav.Item className="list-group-item list-group-item-action" data-toggle="list">
                         <Nav.Link as={Link} to= "areaadm" role="tab">
                             Principal
@@ -89,15 +89,15 @@ function SidebarAdministrador (props) {
                             Gerenciamento
                         </Nav.Link>
                     </Nav.Item>  
+                   
                     <Nav.Item className="list-group-item list-group-item-action" data-toggle="list">
                          <Nav.Link onClick={sair} as={Link} to= "/" role="tab" >
                             Sair
                         </Nav.Link>
                     </Nav.Item> 
-
                 </Nav>  
-
-        
+                    
+            
         </>
     );
 }

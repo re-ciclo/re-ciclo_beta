@@ -15,7 +15,15 @@ class Reciclado
     {
         $connection = Connection::getDb();
 
-        $stmt = $connection->query("SELECT * FROM reciclado");
+        $stmt = $connection->query("SELECT material.id_material, reciclado.id_reciclado, material.nome, material.preco_kg, reciclado.peso_total,
+        (material.preco_kg * reciclado.peso_total) as valor_total, reciclado.data as data
+        FROM reciclado inner join material 
+        ON reciclado.id_material = material.id_material
+        order by reciclado.data");
+
+
+
+
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 

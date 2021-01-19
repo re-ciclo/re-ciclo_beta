@@ -4,7 +4,7 @@ import React from 'react';
 //Components
 import {SidebarAdm} from '../../components/Sidebar';
 import Title from '../../components/Title';
-import { JumbotronAmbiente } from '../../components/Jumbotron';
+
 import Magazine from '../../components/Magazine';
 
 
