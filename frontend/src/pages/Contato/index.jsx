@@ -51,7 +51,9 @@ const Contato = () => {
                 <div className="col-12 col-sm-6">                    
                         <div className="d-flex justify-content-center">
                             <img src={Email} alt="Email" className="mx-2"  />
-                            <p className="text-contact">contato@re-ciclo.com.br</p>
+                            <a href="mailto:contato@re-ciclo.com.br?Subject=Contato" className="text-contact">
+                                contato@re-ciclo.com.br
+                            </a>                            
                         </div>                    
                 </div>
             </div>

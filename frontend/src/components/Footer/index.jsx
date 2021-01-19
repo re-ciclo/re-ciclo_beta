@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom'; 
 
 // Libraries
 import { FaLinkedin, FaFacebookSquare, FaInstagramSquare, 
@@ -49,13 +50,19 @@ const Footer = () => {
 
                                 <ul className="list-unstyled mb-0">
                                     <li>
-                                        <a href="/areciclo" className="text-dark">A Reciclo</a>
+                                        <Link as={Link} href="/areciclo" to = "/areciclo" className="text-dark">
+                                            A Reciclo
+                                        </Link>
+                                    </li>                                    
+                                    <li>
+                                        <Link as={Link} href="/areciclo" to = "/areciclo" className="text-dark">
+                                            Nossa História
+                                        </Link>                                        
                                     </li>
                                     <li>
-                                        <a href="/areciclo" className="text-dark">Nossa História</a>
-                                    </li>
-                                    <li>
-                                        <a href="/projeto" className="text-dark">Projeto</a>
+                                        <Link as={Link} href="/projeto" to = "/projeto" className="text-dark">
+                                            Projeto
+                                        </Link>
                                     </li>                               
                                 </ul>
                             </div>
@@ -65,10 +72,14 @@ const Footer = () => {
 
                                 <ul className="list-unstyled">
                                     <li>
-                                        <a href="/contato" className="text-dark">Fale Conosco</a>
+                                        <Link as={Link} href="/contato" to = "/contato" className="text-dark">
+                                            Fale Conosco
+                                        </Link>                                        
                                     </li>
                                     <li>
-                                        <a href="#" className="text-dark">Seja um Parceiro</a>
+                                        <Link as={Link} href="/sejaparceiro" to = "/sejaparceiro" className="text-dark">
+                                            Seja um Parceiro
+                                        </Link>                                        
                                     </li>                               
                                 </ul>
                             </div>
@@ -83,6 +94,5 @@ const Footer = () => {
         </>
     );
 }
-
-
 export default Footer;
+

@@ -18,7 +18,7 @@
 
 .text-banner-1 p {
     margin-top: 5.5rem;
-    font-size: clamp(1rem, 2.1vw, 2rem);
+    font-size: clamp(1.2rem, 2.5vw, 2rem);
     font-weight: bold;
     color: white;
     text-shadow: 1px 1px 2px black;
@@ -26,7 +26,7 @@
 
 .title-banner-2 {
     margin-top: 4rem;
-    font-size: clamp(1.1rem, 2.3vw, 1.8rem);
+    font-size: clamp(1.2rem, 2.3vw, 2rem);
     font-weight: bold;
     color: white;
     text-shadow: 1px 1px 2px black;
@@ -45,10 +45,32 @@
 
 /* Responsive */
 
-@media (max-width: 415px) {
+@media (max-width: 990px) {
     .banner1,
     .banner2 {
         height: 50vh;
+    }
+
+    .text-banner-1 p {
+        margin-top: 1.5rem;
+    }
+}
+
+@media (max-width: 575px) {
+    .banner1,
+    .banner2 {
+        height: 40vh;
+    }
+
+    .text-banner-1 p {
+        margin-top: 1.5rem;
+    }
+}
+
+@media (max-width: 415px) {
+    .banner1,
+    .banner2 {
+        height: 30vh;
     }
 
     .text-banner-1 p {
@@ -61,12 +83,5 @@
 
     .text-banner-2 {
         margin: .5rem;
-    }
-}
-
-@media (max-width: 990px) {
-    .banner1,
-    .banner2 {
-        height: 60vh;
     }
 }

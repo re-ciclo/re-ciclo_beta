@@ -10,6 +10,7 @@ import AReciclo from '../pages/AReciclo';
 import Projeto from '../pages/Projeto';
 import Contato from '../pages/Contato';
 import Information from '../pages/Information';
+import SejaParceiro from '../pages/SejaParceiro';
 
 // Menu Acesso
 import Cadastro from '../pages/Cadastro';
@@ -38,6 +39,7 @@ const Routes = () =>{
                 <Route path="/projeto" exact component={Projeto} />
                 <Route path="/contato" exact component={Contato} />
                 <Route path="/information" exact component={Information} />
+                <Route path="/sejaparceiro" exact component={SejaParceiro} />
 
                 {/* Menu Acesso*/}
                 <Route path="/cadastro" exact component={Cadastro} />

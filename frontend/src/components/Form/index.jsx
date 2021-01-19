@@ -80,7 +80,7 @@ export const FormRegister = () =>{
         if(formData.get("senha") === formData.get("confirme_senha")){
 
                      
-        const url = "http://localhost/Recode%20Pro/ProjetoSqua07Entrega2/re-ciclo/backend/ReceiveData/getCadastro.php";
+        const url = "http://localhost/re-ciclo/backend/ReceiveData/getCadastro.php";
 
         fetch(url,{
             
@@ -313,7 +313,7 @@ export const FormLogin = () =>{
                 console.log(formData.get("senha"));
 
                             
-                const url = "http://localhost/Recode%20Pro/ProjetoSqua07Entrega2/re-ciclo/backend/ReceiveData/getLogin.php";
+                const url = "http://localhost/re-ciclo/backend/ReceiveData/getLogin.php";
 
                 fetch(url,{
                     

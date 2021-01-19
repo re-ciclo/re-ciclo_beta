@@ -11,9 +11,35 @@
 
 /* Responsive */
 
+@media (max-width: 1888px) {
+    .card-size {
+        width: initial;        
+    }
+}
+
+@media (max-width: 991px) {    
+    .card-size {        
+        height: initial;      
+    }
+
+    .card-image {
+        height: 240px;
+    }
+}
+
+@media (max-width: 575px) {
+    .card-image {
+        width: 15rem;
+        height: 200px;
+        margin-top: 1rem;
+    }
+}
+
 @media (max-width: 415px) { 
     
     .card-body {
         padding: 0 !important;
     }
+
+
 }

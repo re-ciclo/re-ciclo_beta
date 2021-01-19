@@ -35,7 +35,7 @@ function BaseMenu(props){
                                 </Nav.Item>
 
                                 <Nav.Item>
-                                    <Nav.Link as={Link} href="/reciclo" to = "/areciclo" className="font-menu">
+                                    <Nav.Link as={Link} href="/areciclo" to = "/areciclo" className="font-menu">
                                         A Reciclo
                                     </Nav.Link>
                                 </Nav.Item>
