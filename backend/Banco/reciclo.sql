@@ -1,6 +1,6 @@
 CREATE DATABASE reciclo;
 USE reciclo;
-DROP DATABASE reciclo;
+
 
 CREATE TABLE usuario
 (
@@ -13,7 +13,6 @@ nivel_acesso tinyint(1) DEFAULT 0 NOT NULL,
 UNIQUE (email),
 data datetime DEFAULT CURRENT_TIMESTAMP NOT NULL
 );
-
 
 
 INSERT INTO usuario
@@ -49,10 +48,6 @@ INSERT INTO endereco (id_usuario, cep, logradouro, complemento, bairro, localida
 (5,'05000-020','logradouro E','Bloco E', 'Bairro E', 'Localidade P', 'SP','50');
 
 
-SELECT * FROM usuario;
-SELECT * FROM endereco;
-
-
 CREATE TABLE material
 (
 id_material INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -81,10 +76,6 @@ data datetime DEFAULT CURRENT_TIMESTAMP NOT null,
 FOREIGN KEY (id_material)  REFERENCES  material (id_material)
 );
 
-SELECT * FROM reciclado;
-
-
--- drop table reciclado;
 
 -- Obs: não é preciso por a data, pois pega automaticamente, porém para testar períodos, inseri datas
 INSERT INTO reciclado (id_material, peso_total, data) VALUES
@@ -107,23 +98,6 @@ INSERT INTO reciclado (id_material, peso_total, data) VALUES
 
 
 
--- Seleção sem data
-SELECT material.id_material, reciclado.id_reciclado, material.nome, material.preco_kg, reciclado.peso_total,
-(material.preco_kg * reciclado.peso_total) as valor_total, DATE_FORMAT(reciclado.data, "%d/%m/%Y") as Data
-FROM reciclado inner join material 
-ON reciclado.id_material = material.id_material
-order by  DATE_FORMAT(reciclado.data, "%d/%m/%Y");
-
-
--- Seleção com base em data
-SELECT material.id_material, material.nome, material.preco_kg, reciclado.peso_total,
-(material.preco_kg * reciclado.peso_total) as `Valor Total`, DATE_FORMAT(reciclado.data, "%d/%m/%Y") as ` Data Comum`
-FROM reciclado inner join material 
-ON reciclado.id_material = material.id_material
-WHERE reciclado.data between '2020-12-20' and '2021-12-21';
-
--- < now()-7
-
 CREATE TABLE mensagem
 (
 id_mensagem int AUTO_INCREMENT PRIMARY KEY,
@@ -140,55 +114,9 @@ INSERT INTO mensagem (assunto, nome, email, telefone) VALUES
 ('sugestoes','fulanoC','fulanoC@email.com','5555-5555');
 
 
-SELECT * FROM usuario ;
-SELECT * FROM endereco ;
-
-
-SELECT 
-usuario.id_usuario, usuario.nome, usuario.email, usuario.telefone, usuario.nivel_acesso,
-endereco.cep, endereco.logradouro, endereco.complemento, endereco.numero
-FROM usuario INNER JOIN endereco
-ON usuario.id_usuario = endereco.id_usuario;
-
-
-
-
 
 -- Lógicas
 
 -- Nível acesso
 
-Update usuario set nivel_acesso = 1 WHERE id_usuario = 1;
-
--- criar um tipo de auto incremento no id_usuario que está em endereco
-SELECT count(id_usuario)+1 FROM endereco;
-
-
--- Verifica se há e-mail repetido
-SELECT * FROM usuario WHERE email = "alex@gmail.com";
-
--- Login 
-SELECT * FROM usuario WHERE email = "alex@gmail.com" and senha = "11111";
-
-
-
-
-
-UPDATE usuario
-        SET nome = 'novo_nomex', email = 'novo_email', telefone = 'novo_telefone'
-        WHERE id_usuario = '4';
-        
-UPDATE endereco
-        SET cep = 'novo_cepz', logradouro = 'novo_logradouro', complemento = 'novo_complemento', numero = 1
-        WHERE id_usuario = 4;
-        
-SELECT 
-usuario.id_usuario, usuario.nome, usuario.email, usuario.telefone, usuario.nivel_acesso,
-endereco.cep, endereco.logradouro, endereco.complemento, endereco.numero
-FROM usuario INNER JOIN endereco
-ON usuario.id_usuario = endereco.id_usuario
-WHERE usuario.id_usuario = 1;
-
-
-
-
+-- Update usuario set nivel_acesso = 1 WHERE id_usuario = 1;
