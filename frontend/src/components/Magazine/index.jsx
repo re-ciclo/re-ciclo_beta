@@ -1,11 +1,33 @@
 import React from "react";
 import {  MDBRow, MDBCol, MDBCard, MDBCardBody, MDBMask, MDBIcon, MDBView } from "mdbreact";
 
+
+ 
+
+import img01 from './img/img01.jpeg';
+
+// Período de reciclagem
+
+import img01_1 from './img/img01-1.jpeg';
+import img01_2 from './img/img01-2.jpeg';
+import img01_3 from './img/img01-3.jpeg';
+
+
+
+import img02 from './img/img02.jpeg';
+
+// Período de benefícios
+
+import img02_1 from './img/img02-1.jpeg';
+import img02_2 from './img/img02-2.jpeg';
+import img02_3 from './img/img02-3.jpeg';
+
+
 const Magazine = (props) => {
 
   return (
     <MDBCard
-        className="my-5 px-5 mx-auto"
+        className=" px-5 mx-auto"
         style={{ fontWeight: 300, maxWidth: "90%" }}
       >
         <MDBCardBody style={{ paddingTop: 0 }}>
@@ -21,11 +43,11 @@ const Magazine = (props) => {
                 borderBottom: "1px solid #e0e0e0",
                 marginBottom: "1.5rem"
               }}>
-                <MDBView hover rounded className="z-depth-1-half mb-4">
+                <MDBView hover rounded className="z-depth-1-half mb-4 shadow">
                   <img
                     className="img-fluid"
-                    src="https://mdbootstrap.com/img/Photos/Others/images/82.jpg"
-                    alt=""
+                    src={img01}
+                    alt="Lugares do Maracanã"
                   />
                   <a href="#!">
                     <MDBMask overlay="white-slight" className="waves-light" />
@@ -35,12 +57,12 @@ const Magazine = (props) => {
                   <a href="#!" className="light-blue-text">
                     <h6 className="font-weight-bold">
                       <MDBIcon icon="plane" className="pr-2" />
-                      Lugares do 'Maraca'
+                      Lugares do Maracanã
                     </h6>
                   </a>
                   <p className="font-weight-bold dark-grey-text">
                     <MDBIcon far icon="clock" className="pr-2" />
-                    20/08/2018
+                    20/11/2020
                   </p>
                 </div>
                 <h3 className="font-weight-bold dark-grey-text mb-3 p-0">
@@ -61,8 +83,8 @@ const Magazine = (props) => {
                     <MDBView hover rounded className="z-depth-1-half mb-4">
                       <img
                         className="img-fluid"
-                        src="https://mdbootstrap.com/img/Photos/Others/photo8.jpg"
-                        alt=""
+                        src={img01_1}
+                        alt="Coleta 1"
                       />
                       <a href="#!">
                         <MDBMask overlay="white-slight" className="waves-light" />
@@ -96,8 +118,8 @@ const Magazine = (props) => {
                     <MDBView hover rounded className="z-depth-1-half mb-4">
                       <img
                         className="img-fluid"
-                        src="https://mdbootstrap.com/img/Photos/Others/images/54.jpg"
-                        alt=""
+                        src={img01_2}
+                        alt=" Coleta 2"
                       />
                       <a href="#!">
                         <MDBMask overlay="white-slight" className="waves-light" />
@@ -128,8 +150,8 @@ const Magazine = (props) => {
                     <MDBView hover rounded className="z-depth-1-half mb-4">
                       <img
                         className="img-fluid"
-                        src="https://mdbootstrap.com/img/Photos/Others/images/49.jpg"
-                        alt=""
+                        src={img01_3}
+                        alt="Coleta 3"
                       />
                       <a href="#!">
                         <MDBMask overlay="white-slight" className="waves-light" />
@@ -160,10 +182,10 @@ const Magazine = (props) => {
                 borderBottom: "1px solid #e0e0e0",
                 marginBottom: "1.5rem"
               }}>
-                <MDBView hover rounded className="z-depth-1-half mb-4">
+                <MDBView hover rounded className="z-depth-1-half mb-4 shadow">
                   <img
                     className="img-fluid"
-                    src="https://mdbootstrap.com/img/Photos/Others/images/86.jpg"
+                    src={img02}
                     alt=""
                   />
                   <a href="#!">
@@ -174,19 +196,19 @@ const Magazine = (props) => {
                   <a href="#!" className="pink-text">
                     <h6 className="font-weight-bold">
                       <MDBIcon icon="home" className="pr-2" />
-                       Lenda do bairro
+                       Bloco A
                     </h6>
                   </a>
                   <p className="font-weight-bold dark-grey-text">
                     <MDBIcon far icon="clock" className="pr-2" />
-                    24/08/2018
+                    20/11/2020
                   </p>
                 </div>
                 <h3 className="font-weight-bold dark-grey-text mb-3 p-0">
                   <a href="#!">Eventos</a>
                 </h3>
                 <p className="dark-grey-text">
-                    Fique por dentro dos números! A Reciclo junto com o Parceiro de Tal 
+                    Fique por dentro dos números! A Reciclo junto com o Parceiro
                     planejou o melhor para você!
                 </p>
               </div>
@@ -200,8 +222,8 @@ const Magazine = (props) => {
                     <MDBView hover rounded className="z-depth-1-half mb-4">
                       <img
                         className="img-fluid"
-                        src="https://mdbootstrap.com/img/Photos/Others/images/86.jpg"
-                        alt=""
+                        src={img02_1}
+                        alt="Beneficio 1"
                       />
                       <a href="#!">
                         <MDBMask overlay="white-slight" className="waves-light" />
@@ -235,8 +257,8 @@ const Magazine = (props) => {
                     <MDBView hover rounded className="z-depth-1-half mb-4">
                       <img
                         className="img-fluid"
-                        src="https://mdbootstrap.com/img/Photos/Others/images/48.jpg"
-                        alt=""
+                        src={img02_2}
+                        alt="Beneficio 2"
                       />
                       <a href="#!">
                         <MDBMask overlay="white-slight" className="waves-light" />
@@ -267,8 +289,8 @@ const Magazine = (props) => {
                     <MDBView hover rounded className="z-depth-1-half mb-4">
                       <img
                         className="img-fluid"
-                        src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(56).jpg"
-                        alt=""
+                        src={img02_3}
+                        alt="Beneficio 3"
                       />
                       <a href="#!">
                         <MDBMask overlay="white-slight" className="waves-light" />

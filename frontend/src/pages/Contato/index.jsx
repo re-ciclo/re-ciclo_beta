@@ -7,6 +7,7 @@ import {FormContact} from '../../components/Form';
 // images
 import Whatsapp from './img/whatsapp.png';
 import Email from './img/email.png';
+import  ReactWhatsapp  from'react-whatsapp'; 
 
 //styles
 import './Contato.css'
@@ -37,8 +38,13 @@ const Contato = () => {
             <div className="row m-5">
                 <div className="col-12 col-sm-6">                    
                         <div className="d-flex justify-content-center">
-                            <img src={Whatsapp} alt="Whatsapp" className="mx-2"/>
+                            
+                            <a href="https://api.whatsapp.com/send?l=pt&amp;phone=5541999999">
+                            <img src={Whatsapp} alt="Whatsapp" className="mx-2" /></a>
                             <p className="text-contact">(11) 99999-9999</p>
+                            
+                            
+
                         </div>                    
                 </div>
 

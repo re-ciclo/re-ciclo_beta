@@ -1,12 +1,9 @@
 import React from 'react';
 
 //Components
-import Title from '../../components/Title';
 import {Sidebar} from '../../components/Sidebar';
-import { JumbotronAmbiente } from '../../components/Jumbotron';
-
-//styles
-import './AreaUsuario.css';
+import Title from '../../components/Title';
+import Magazine from '../../components/Magazine';
 
 const AreaUsuario = () => {
 
@@ -17,26 +14,33 @@ const AreaUsuario = () => {
     if(verifica==0){
 
         return (
-            <div className="container-fluid">  
+            <div className="container-fluid" >
 
-                <div className="row">
-                    <div className="col-12 col-sm-4 mx-auto mt-3 d-flex justify-content-center btn-user">                    
+                    <Title title='Área do Usuário' />            
 
-                        <button type="button" className="btn btn-lg font-user">
-                            Bem vindo(a) {nome} !
-                        </button>
+               
+                <div className="row" >
+                    <div className="col-12 col-sm-2 d-flex justify-content-center"> 
+                        <div className="ml-2 w-100">
+                            <Sidebar/>
+                        </div>
+                    </div>  
+                    
+                    <div className="col-12 col-sm-10" >
+                        <Magazine nome={nome}/>
+                        <br/><br/><br/><br/><br/><br/><br/><br/>
+                        <br/><br/><br/><br/><br/><br/><br/><br/>
+                        <br/><br/><br/><br/><br/><br/><br/><br/>
+                        <br/><br/><br/><br/><br/><br/><br/><br/>
+                        <br/><br/><br/><br/><br/><br/><br/><br/>
+                        {/* <br/><br/><br/><br/><br/><br/><br/><br/> */}
+                        
+                        {/* <JumbotronAmbiente jumboNome={nome}/> */}
                     </div>
-                </div>                           
-
-                <div className="row" > 
-                    <div className="col-12 col-sm-3 d-flex justify-content-center"> 
-                            <Sidebar/>                            
-                    </div>
-                    <div className="col-12 col-sm-6 pt-1">
-                        <JumbotronAmbiente />
-                    </div>
-                     
+                    
                 </div>
+
+
             </div>
         );
     }else{
@@ -49,5 +53,6 @@ const AreaUsuario = () => {
         );
     }
 }
+
 
 export default AreaUsuario;

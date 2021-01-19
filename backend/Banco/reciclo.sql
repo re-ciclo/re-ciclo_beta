@@ -88,24 +88,28 @@ SELECT * FROM reciclado;
 
 -- Obs: não é preciso por a data, pois pega automaticamente, porém para testar períodos, inseri datas
 INSERT INTO reciclado (id_material, peso_total, data) VALUES
--- Registros do dia 20/12/2020
-(1,5,'2020-12-20 00:00:00'),(2,20,'2020-12-20 00:00:00'),(3,20,'2020-12-20 00:00:00'),(4,20,'2020-12-20 00:00:00'),
-(5,10,'2020-12-20 00:00:00'),(6,30,'2020-12-20 00:00:00'),(7,10,'2020-12-20 00:00:00'),(8,20,'2020-12-20 00:00:00'),
 
--- Registros do dia 27/12/2020
-(1,20,'2020-12-27 00:00:00'),(2,20,'2020-12-27 00:00:00'),(3,20,'2020-12-27 00:00:00'),(4,20,'2020-12-27 00:00:00'),
-(5,20,'2020-12-27 00:00:00'),(6,20,'2020-12-27 00:00:00'),(7,20,'2020-12-27 00:00:00'),(8,20,'2020-12-27 00:00:00'),
+-- Registros do dia 07/01/2021
+(1,5,'2021-01-07'),(2,20,'2021-01-07'),(3,20,'2021-01-07'),(4,20,'2021-01-07'),
+(5,10,'2021-01-07'),(6,30,'2021-01-07'),(7,10,'2021-01-07'),(8,20,'2021-01-07'),
 
+-- Registros do dia 14/02/2021
+(1,5,'2021-01-14'),(2,20,'2021-01-14'),(3,20,'2021-01-14'),(4,20,'2021-01-14'),
+(5,10,'2021-01-14'),(6,30,'2021-01-14'),(7,10,'2021-01-14'),(8,20,'2021-01-14'),
 
--- Registros do dia 03/01/2021
-(1,20,'2021-01-03 00:00:00'),(2,20,'2021-01-03 00:00:00'),(3,20,'2021-01-03 00:00:00'),(4,20,'2021-01-03 00:00:00'),
-(5,20,'2021-01-03 00:00:00'),(6,20,'2021-01-03 00:00:00'),(7,20,'2021-01-03 00:00:00'),(8,20,'2021-01-03 00:00:00');
+-- Registros do dia 21/02/2021
+(1,20,'2021-01-21'),(2,20,'2021-01-21'),(3,20,'2021-01-21'),(4,20,'2021-01-21'),
+(5,20,'2021-01-21'),(6,20,'2021-01-21'),(7,20,'2021-01-21'),(8,20,'2021-01-21'),
+
+-- Registros do dia 28/02/2021
+(1,20,'2021-01-28'),(2,20,'2021-01-28'),(3,20,'2021-01-28'),(4,20,'2021-01-28'),
+(5,20,'2021-01-28'),(6,20,'2021-01-28'),(7,20,'2021-01-28'),(8,20,'2021-01-28');
 
 
 
 -- Seleção sem data
 SELECT material.id_material, reciclado.id_reciclado, material.nome, material.preco_kg, reciclado.peso_total,
-(material.preco_kg * reciclado.peso_total) as `Valor Total`, DATE_FORMAT(reciclado.data, "%d/%m/%Y") as ` Data Comum`
+(material.preco_kg * reciclado.peso_total) as valor_total, DATE_FORMAT(reciclado.data, "%d/%m/%Y") as Data
 FROM reciclado inner join material 
 ON reciclado.id_material = material.id_material
 order by  DATE_FORMAT(reciclado.data, "%d/%m/%Y");
@@ -140,7 +144,13 @@ SELECT * FROM usuario ;
 SELECT * FROM endereco ;
 
 
-SELECT * FROM usuario;
+SELECT 
+usuario.id_usuario, usuario.nome, usuario.email, usuario.telefone, usuario.nivel_acesso,
+endereco.cep, endereco.logradouro, endereco.complemento, endereco.numero
+FROM usuario INNER JOIN endereco
+ON usuario.id_usuario = endereco.id_usuario;
+
+
 
 
 
@@ -178,6 +188,7 @@ endereco.cep, endereco.logradouro, endereco.complemento, endereco.numero
 FROM usuario INNER JOIN endereco
 ON usuario.id_usuario = endereco.id_usuario
 WHERE usuario.id_usuario = 1;
+
 
 
 
