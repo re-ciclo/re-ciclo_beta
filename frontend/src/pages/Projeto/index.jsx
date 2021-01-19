@@ -30,8 +30,8 @@ const Projeto = () => {
                </br>
 
                     <p class="text-sm-center"> A comunidade Maracanã, fica localizada 
-                    na região Sul de São Paulo.  Essa comunidade sofria por não possuirem
-                    uma moradia digna e confortável. Hoje essa realizade mudou, esses moradores vivem
+                    na região Sul de São Paulo.   Essa comunidade sofria por não possuirem
+                    uma moradia digna e confortável.  Hoje essa realizade mudou, esses moradores vivem
                     em prédios populares, mas infelizmente sem uma infraestrura apropriada.
                 </p>
 
