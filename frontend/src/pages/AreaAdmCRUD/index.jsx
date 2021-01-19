@@ -26,7 +26,7 @@ const AreaAdmCRUD = () => {
 
     React.useEffect( async () =>{
         console.log("Trouxe os dados");
-        const url = "http://localhost/Recode%20Pro/ProjetoSqua07Entrega2/re-ciclo/backend/SendData/jsonDadosUsuarioEditaveis.php";
+        const url = "http://localhost/re-ciclo/backend/SendData/jsonDadosUsuarioEditaveis.php";
         const response = await fetch(url);
         setDados(await response.json());
     },[todos])
