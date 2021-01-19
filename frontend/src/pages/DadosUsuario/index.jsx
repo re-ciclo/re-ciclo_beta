@@ -13,21 +13,25 @@ const DadosUsuario = () =>{
     if(verifica==0){
 
         return(
-            <div className="container-fluid">
+            <div className="container-fluid">  
 
-                    <Title title='Dados do Usuário' />            
+                <div className="row">
+                    <div className="col-12 col-sm-4 mx-auto mt-3 d-flex justify-content-center btn-user">                    
 
-                <div className="row" >
-                    <div className="col-12 col-sm-2 d-flex justify-content-center">
-                        <Sidebar /> 
-                    </div>  
-                    
-                    <div className="col-12 col-sm-7">
-                        Dados do usuario
+                        <button type="button" className="btn btn-lg font-user">
+                            Meus Dados
+                        </button>
                     </div>
-                    <div className="col-12 col-sm-3">
-                        Imagem
-                    </div>  
+                </div>                           
+
+                <div className="row" > 
+                    <div className="col-12 col-sm-3 d-flex justify-content-center"> 
+                            <Sidebar/>                            
+                    </div>
+                    <div className="col-12 col-sm-6 pt-1">
+                        
+                    </div>
+                     
                 </div>
             </div>
         );

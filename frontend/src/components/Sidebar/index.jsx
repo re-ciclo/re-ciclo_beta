@@ -19,31 +19,32 @@ function SidebarUsuario (props) {
     
     return(
         <>           
-                           
-                <Nav activeKey={location.pathname} className="w-75 d-flex justify-content-around list-group" id="minhaLista" role="tablist">
-                    <Nav.Item className="list-group-item list-group-item-action" data-toggle="list">
-                        <Nav.Link as={Link} to= "areausuario" role="tab">
-                            Principal
-                        </Nav.Link>
-                    </Nav.Item>
+                <div className="pt-1 container-fluid text-center">        
+                    <Nav activeKey={location.pathname} className="w-100 d-flex justify-content-around list-group" id="minhaLista" role="tablist">
+                        <Nav.Item className="list-group-item list-group-item-action" data-toggle="list">
+                            <Nav.Link as={Link} to= "areausuario" role="tab">
+                                Principal
+                            </Nav.Link>
+                        </Nav.Item>
 
-                    <Nav.Item className="list-group-item list-group-item-action" data-toggle="list">
-                        <Nav.Link as={Link} to= "areausuarioresultados" role="tab">
-                            Resultados
-                        </Nav.Link>
-                    </Nav.Item>
+                        <Nav.Item className="list-group-item list-group-item-action" data-toggle="list">
+                            <Nav.Link as={Link} to= "areausuarioresultados" role="tab">
+                                Resultados
+                            </Nav.Link>
+                        </Nav.Item>
 
-                    <Nav.Item className="list-group-item list-group-item-action" data-toggle="list">
-                        <Nav.Link as={Link} to= "dadosusuario" role="tab">
-                            Meus Dados
-                        </Nav.Link>
-                    </Nav.Item>      
-                    <Nav.Item className="list-group-item list-group-item-action" data-toggle="list">
-                        <Nav.Link onClick={sair} as={Link} to= "/" role="tab" >
-                           Sair
-                        </Nav.Link>
-                    </Nav.Item> 
-                </Nav>  
+                        <Nav.Item className="list-group-item list-group-item-action" data-toggle="list">
+                            <Nav.Link as={Link} to= "dadosusuario" role="tab">
+                                Meus Dados
+                            </Nav.Link>
+                        </Nav.Item>      
+                        <Nav.Item className="list-group-item list-group-item-action" data-toggle="list">
+                            <Nav.Link onClick={sair} as={Link} to= "/" role="tab" >
+                            Sair
+                            </Nav.Link>
+                        </Nav.Item> 
+                    </Nav>  
+                </div>  
         </>
     );
 }

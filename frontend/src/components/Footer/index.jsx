@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link, withRouter} from 'react-router-dom';
+import {Link} from 'react-router-dom'; 
 
 // Libraries
 import { FaLinkedin, FaFacebookSquare, FaInstagramSquare, 
@@ -9,7 +9,7 @@ FaWhatsappSquare, FaYoutube} from 'react-icons/fa';
 //styles
 import './Footer.css';
 
-function Footer() {    
+const Footer = () => {
 
     return (
         <>
@@ -50,21 +50,19 @@ function Footer() {
 
                                 <ul className="list-unstyled mb-0">
                                     <li>
-                                        <Link to = "/areciclo" className="text-dark">
+                                        <Link as={Link} href="/areciclo" to = "/areciclo" className="text-dark">
                                             A Reciclo
-                                        </Link>                                        
-                                    </li>
-
+                                        </Link>
+                                    </li>                                    
                                     <li>
-                                        <Link to = "/areciclo" className="text-dark">
+                                        <Link as={Link} href="/areciclo" to = "/areciclo" className="text-dark">
                                             Nossa História
                                         </Link>                                        
                                     </li>
-                                    
                                     <li>
-                                        <Link to = "/projeto" className="text-dark">
-                                            Projetos
-                                        </Link>                                        
+                                        <Link as={Link} href="/projeto" to = "/projeto" className="text-dark">
+                                            Projeto
+                                        </Link>
                                     </li>                               
                                 </ul>
                             </div>
@@ -74,16 +72,14 @@ function Footer() {
 
                                 <ul className="list-unstyled">
                                     <li>
-                                        <Link to = "/contato" className="text-dark">
+                                        <Link as={Link} href="/contato" to = "/contato" className="text-dark">
                                             Fale Conosco
                                         </Link>                                        
                                     </li>
-
                                     <li>
-                                        <Link to = "/sejaparceiro" className="text-dark">
+                                        <Link as={Link} href="/sejaparceiro" to = "/sejaparceiro" className="text-dark">
                                             Seja um Parceiro
-                                        </Link>
-                                        <a href="#" className="text-dark"></a>
+                                        </Link>                                        
                                     </li>                               
                                 </ul>
                             </div>
@@ -98,6 +94,4 @@ function Footer() {
         </>
     );
 }
-
-
 export default Footer;
