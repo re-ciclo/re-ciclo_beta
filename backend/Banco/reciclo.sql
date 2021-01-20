@@ -114,6 +114,26 @@ INSERT INTO mensagem (assunto, nome, email, telefone) VALUES
 ('sugestoes','fulanoC','fulanoC@email.com','5555-5555');
 
 
+/* Inner join dos usuários e seus repectivos endereços:
+
+ 	    SELECT
+            usuario.id_usuario, usuario.nome, usuario.email, usuario.telefone, usuario.nivel_acesso, 
+            endereco.cep, endereco.logradouro, endereco.complemento, endereco.numero
+            FROM usuario INNER JOIN endereco
+            ON usuario.id_usuario = endereco.id_usuario
+            WHERE usuario.id_usuario = $id;
+*/
+
+
+/* Inner join do material e período em que foram reciclados:
+
+	SELECT
+	material.id_material, reciclado.id_reciclado, material.nome, material.preco_kg, reciclado.peso_total,
+        (material.preco_kg * reciclado.peso_total) as valor_total, reciclado.data as data
+        FROM reciclado inner join material 
+        ON reciclado.id_material = material.id_material
+        order by reciclado.data;
+*/
 
 -- Lógicas
 
